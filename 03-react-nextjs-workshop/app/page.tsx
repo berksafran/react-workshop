@@ -26,6 +26,16 @@ export default function Home() {
             </div>
 
             <div className={styles.topic}>
+              <h3>TypeScript + React</h3>
+              <p><Link href="/day1-typescript-react">📚 Tüm Konular</Link></p>
+              <ul>
+                <li><Link href="/day1-typescript-react/01-simple-props">Simple Props</Link></li>
+                <li><Link href="/day1-typescript-react/02-props-with-children">Props with Children</Link></li>
+                <li><Link href="/day1-typescript-react/03-ODEV-react-ts-types">Ödev: Component Types</Link></li>
+              </ul>
+            </div>
+
+            <div className={styles.topic}>
               <h3>Hooks Deep Dive</h3>
               <ul>
                 <li><Link href="/day1/hooks/useState-useEffect">useState & useEffect</Link></li>

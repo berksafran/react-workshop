@@ -51,7 +51,7 @@ useEffect(() => {
 
 ---
 
-### 3. Unmount
+### 3. Unmount (Ölüm)
 
 Component DOM'dan kaldırılır.
 

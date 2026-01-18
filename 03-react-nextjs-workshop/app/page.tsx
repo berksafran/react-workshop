@@ -16,23 +16,23 @@ export default function Home() {
 
           <div className={styles.topics}>
             <div className={styles.topic}>
-              <h3>React Core Concepts</h3>
-              <p><Link href="/day1/01-react-core">📚 Tüm Konular</Link></p>
+              <h3>TypeScript + React</h3>
+              <p><Link href="/day1/01-typescript-react">📚 Tüm Konular</Link></p>
               <ul>
-                <li><Link href="/day1/01-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
-                <li><Link href="/day1/01-react-core/02-state-and-props">State & Props</Link></li>
-                <li><Link href="/day1/01-react-core/03-lifecycle">Lifecycle</Link></li>
-                <li><Link href="/day1/01-react-core/04-counter-app">Counter App (Mini Ödev)</Link></li>
+                <li><Link href="/day1/01-typescript-react/01-simple-props">Simple Props</Link></li>
+                <li><Link href="/day1/01-typescript-react/02-props-with-children">Props with Children</Link></li>
+                <li><Link href="/day1/01-typescript-react/03-ODEV-react-ts-types">Ödev: Component Types</Link></li>
               </ul>
             </div>
 
             <div className={styles.topic}>
-              <h3>TypeScript + React</h3>
-              <p><Link href="/day1/02-typescript-react">📚 Tüm Konular</Link></p>
+              <h3>React Core Concepts</h3>
+              <p><Link href="/day1/02-react-core">📚 Tüm Konular</Link></p>
               <ul>
-                <li><Link href="/day1/02-typescript-react/01-simple-props">Simple Props</Link></li>
-                <li><Link href="/day1/02-typescript-react/02-props-with-children">Props with Children</Link></li>
-                <li><Link href="/day1/02-typescript-react/03-ODEV-react-ts-types">Ödev: Component Types</Link></li>
+                <li><Link href="/day1/02-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
+                <li><Link href="/day1/02-react-core/02-state-and-props">State & Props</Link></li>
+                <li><Link href="/day1/02-react-core/03-lifecycle">Lifecycle</Link></li>
+                <li><Link href="/day1/02-react-core/04-ODEV-counter-app">Counter App (Mini Ödev)</Link></li>
               </ul>
             </div>
 

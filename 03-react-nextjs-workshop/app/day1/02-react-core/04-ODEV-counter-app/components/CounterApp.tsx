@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '../page.module.scss';
 import { CounterDisplay } from './CounterDisplay';
 import { CounterControls } from './CounterControls';
 import { CounterStats } from './CounterStats';
 import { CounterHistory } from './CounterHistory';
+import styles from '../page.module.scss';
 
 export function CounterApp() {
     const [count, setCount] = useState(0);

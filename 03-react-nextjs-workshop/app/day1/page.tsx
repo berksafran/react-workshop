@@ -1,23 +1,23 @@
 import Link from 'next/link';
-import styles from './01-react-core/page.module.scss';
+import styles from './02-react-core/page.module.scss';
 
 export default function Day1Page() {
     const sections = [
         {
             id: 1,
-            title: 'React Core Concepts',
-            description: 'Declarative vs Imperative, State & Props, Lifecycle, Counter App',
-            path: '/day1/01-react-core',
-            emoji: '⚛️',
-            topics: 4
+            title: 'TypeScript + React',
+            description: 'Component typing, Props, PropsWithChildren',
+            path: '/day1/01-typescript-react',
+            emoji: '📘',
+            topics: 3
         },
         {
             id: 2,
-            title: 'TypeScript + React',
-            description: 'Component typing, Props, PropsWithChildren',
-            path: '/day1/02-typescript-react',
-            emoji: '📘',
-            topics: 3
+            title: 'React Core Concepts',
+            description: 'Declarative vs Imperative, State & Props, Lifecycle, Counter App',
+            path: '/day1/02-react-core',
+            emoji: '⚛️',
+            topics: 4
         },
         {
             id: 3,

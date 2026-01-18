@@ -12,37 +12,39 @@ export default function Home() {
       <main className={styles.main}>
         <section className={styles.day}>
           <h2>📅 Gün 1 - React Fundamentals</h2>
+          <p><Link href="/day1" style={{ color: '#667eea', fontWeight: 'bold' }}>📚 Tüm Konular</Link></p>
 
           <div className={styles.topics}>
             <div className={styles.topic}>
               <h3>React Core Concepts</h3>
-              <p><Link href="/day1-react-core">📚 Tüm Konular</Link></p>
+              <p><Link href="/day1/01-react-core">📚 Tüm Konular</Link></p>
               <ul>
-                <li><Link href="/day1-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
-                <li><Link href="/day1-react-core/02-state-and-props">State & Props</Link></li>
-                <li><Link href="/day1-react-core/03-lifecycle">Lifecycle</Link></li>
-                <li><Link href="/day1-react-core/04-counter-app">Counter App (Mini Ödev)</Link></li>
+                <li><Link href="/day1/01-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
+                <li><Link href="/day1/01-react-core/02-state-and-props">State & Props</Link></li>
+                <li><Link href="/day1/01-react-core/03-lifecycle">Lifecycle</Link></li>
+                <li><Link href="/day1/01-react-core/04-counter-app">Counter App (Mini Ödev)</Link></li>
               </ul>
             </div>
 
             <div className={styles.topic}>
               <h3>TypeScript + React</h3>
-              <p><Link href="/day1-typescript-react">📚 Tüm Konular</Link></p>
+              <p><Link href="/day1/02-typescript-react">📚 Tüm Konular</Link></p>
               <ul>
-                <li><Link href="/day1-typescript-react/01-simple-props">Simple Props</Link></li>
-                <li><Link href="/day1-typescript-react/02-props-with-children">Props with Children</Link></li>
-                <li><Link href="/day1-typescript-react/03-ODEV-react-ts-types">Ödev: Component Types</Link></li>
+                <li><Link href="/day1/02-typescript-react/01-simple-props">Simple Props</Link></li>
+                <li><Link href="/day1/02-typescript-react/02-props-with-children">Props with Children</Link></li>
+                <li><Link href="/day1/02-typescript-react/03-ODEV-react-ts-types">Ödev: Component Types</Link></li>
               </ul>
             </div>
 
             <div className={styles.topic}>
               <h3>Hooks Deep Dive</h3>
+              <p><Link href="/day1/03-hooks">📚 Tüm Konular</Link></p>
               <ul>
-                <li><Link href="/day1/hooks/useState-useEffect">useState & useEffect</Link></li>
-                <li><Link href="/day1/hooks/useCallback-useMemo">useCallback & useMemo</Link></li>
-                <li><Link href="/day1/hooks/useReducer">useReducer</Link></li>
-                <li><Link href="/day1/hooks/custom-hooks">Custom Hooks</Link></li>
-                <li><Link href="/day1/hooks/react-compiler">React Compiler (Next.js 16)</Link></li>
+                <li><Link href="/day1/03-hooks/01-useState-useEffect">useState & useEffect</Link></li>
+                <li><Link href="/day1/03-hooks/02-useCallback-useMemo">useCallback & useMemo</Link></li>
+                <li><Link href="/day1/03-hooks/03-useReducer">useReducer</Link></li>
+                <li><Link href="/day1/03-hooks/04-custom-hooks">Custom Hooks</Link></li>
+                <li><Link href="/day1/03-hooks/05-react-compiler">React Compiler (Next.js 16)</Link></li>
               </ul>
             </div>
           </div>

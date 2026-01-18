@@ -7,28 +7,28 @@ export default function Day1ReactCorePage() {
             id: 1,
             title: 'Declarative vs Imperative',
             description: 'React\'in declarative yaklaşımı ve imperative yaklaşımla farkları',
-            path: '/day1-react-core/01-declarative-vs-imperative',
+            path: '/day1/01-react-core/01-declarative-vs-imperative',
             emoji: '🎯'
         },
         {
             id: 2,
             title: 'State & Props',
             description: 'Component state yönetimi ve props ile veri aktarımı',
-            path: '/day1-react-core/02-state-and-props',
+            path: '/day1/01-react-core/02-state-and-props',
             emoji: '📦'
         },
         {
             id: 3,
             title: 'Lifecycle',
             description: 'Component lifecycle: Mount → Update → Unmount',
-            path: '/day1-react-core/03-lifecycle',
+            path: '/day1/01-react-core/03-lifecycle',
             emoji: '♻️'
         },
         {
             id: 4,
             title: 'Counter App (Mini Ödev)',
             description: 'State ve props ilişkisini gösteren sayaç uygulaması',
-            path: '/day1-react-core/04-counter-app',
+            path: '/day1/01-react-core/04-counter-app',
             emoji: '🔢'
         }
     ];

@@ -7,21 +7,21 @@ export default function Day1TypeScriptReactPage() {
             id: 1,
             title: 'Simple Props',
             description: 'React component props typing (FC kullanmadan)',
-            path: '/day1-typescript-react/01-simple-props',
+            path: '/day1/02-typescript-react/01-simple-props',
             emoji: '📝'
         },
         {
             id: 2,
             title: 'Props with Children',
             description: 'PropsWithChildren kullanımı',
-            path: '/day1-typescript-react/02-props-with-children',
+            path: '/day1/02-typescript-react/02-props-with-children',
             emoji: '👶'
         },
         {
             id: 3,
             title: 'Ödev: React Component Types',
             description: 'Farklı tipte props alan React bileşeni',
-            path: '/day1-typescript-react/03-ODEV-react-ts-types',
+            path: '/day1/02-typescript-react/03-ODEV-react-ts-types',
             emoji: '📚'
         }
     ];

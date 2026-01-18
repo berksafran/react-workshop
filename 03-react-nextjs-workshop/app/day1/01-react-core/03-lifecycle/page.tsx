@@ -122,7 +122,7 @@ export default function LifecyclePage() {
                 </section>
             </div>
 
-            <Link href="/day1-react-core" className={styles.backLink}>
+            <Link href="/day1/01-react-core" className={styles.backLink}>
                 ← Geri Dön
             </Link>
         </div>

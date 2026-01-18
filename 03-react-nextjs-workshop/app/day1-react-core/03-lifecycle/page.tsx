@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.scss';
+import { LifecycleDemo } from './components/LifecycleDemo';
 
 export default function LifecyclePage() {
     const [count, setCount] = useState(0);
@@ -13,28 +14,6 @@ export default function LifecyclePage() {
         const timestamp = new Date().toLocaleTimeString();
         setLogs(prev => [...prev, `[${timestamp}] ${message}`]);
     };
-
-    // Component that demonstrates lifecycle
-    function LifecycleDemo({ count }: { count: number }) {
-        useEffect(() => {
-            addLog('🟢 MOUNT: Component ilk kez render edildi');
-
-            return () => {
-                addLog('🔴 UNMOUNT: Component DOM\'dan kaldırıldı');
-            };
-        }, []); // Empty dependency array = sadece mount/unmount
-
-        useEffect(() => {
-            addLog(`🔄 UPDATE: Count değişti (${count})`);
-        }, [count]); // count değişince çalışır
-
-        return (
-            <div className={styles.lifecycleDemo}>
-                <h3>Lifecycle Demo Component</h3>
-                <p>Current Count: {count}</p>
-            </div>
-        );
-    }
 
     return (
         <div className={styles.container}>
@@ -99,7 +78,7 @@ export default function LifecyclePage() {
                     </div>
 
                     <div className={styles.demo}>
-                        {isVisible && <LifecycleDemo count={count} />}
+                        {isVisible && <LifecycleDemo count={count} onLog={addLog} />}
                     </div>
 
                     <div className={styles.logs}>

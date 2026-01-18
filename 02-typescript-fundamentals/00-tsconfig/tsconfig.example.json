@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    /* Strict Type Checking */
+    "strict": true, // Tüm strict kontrolleri aktif et
+    "noImplicitAny": true, // any tipini otomatik kullanma
+    "strictNullChecks": true, // null/undefined kontrolü
+    "strictFunctionTypes": true, // Fonksiyon tiplerini sıkı kontrol et
+    "strictBindCallApply": true, // bind/call/apply kontrolü
+    "strictPropertyInitialization": true, // Class property'leri başlatılmalı
+    "noImplicitThis": true, // this'in tipi belirsiz olmasın
+    "alwaysStrict": true, // "use strict" ekle
+
+    /* Module Resolution */
+    "module": "ESNext", // Modern module sistemi
+    "moduleResolution": "bundler", // Next.js için bundler
+    "target": "ES2020", // Hedef JavaScript versiyonu
+    "lib": ["ES2020", "DOM", "DOM.Iterable"], // Kullanılabilir API'ler
+
+    /* Path Mapping */
+    "baseUrl": ".", // Import path'lerin başlangıcı
+    "paths": {
+      "@/*": ["./*"] // @ ile kısa path kullanımı
+    },
+
+    /* Emit */
+    "declaration": true, // .d.ts dosyaları oluştur
+    "sourceMap": true, // Debug için source map
+    "removeComments": false, // Yorumları koru
+    "noEmit": true, // Next.js kendi compile eder
+
+    /* Interop */
+    "esModuleInterop": true, // CommonJS/ES module uyumluluğu
+    "allowSyntheticDefaultImports": true, // Default import'a izin ver
+    "forceConsistentCasingInFileNames": true, // Dosya ismi case-sensitive
+
+    /* Type Checking */
+    "skipLibCheck": true, // node_modules type check'i atla
+    "resolveJsonModule": true, // JSON import'a izin ver
+    "isolatedModules": true, // Her dosya bağımsız compile edilebilir
+
+    /* Advanced */
+    "allowUnusedLabels": false, // Kullanılmayan label'lara izin verme
+    "allowUnreachableCode": false, // Erişilemeyen koda izin verme
+    "noFallthroughCasesInSwitch": true, // Switch case'de break zorunlu
+    "noImplicitReturns": true, // Tüm path'ler return etmeli
+    "noUnusedLocals": true, // Kullanılmayan değişkenlere izin verme
+    "noUnusedParameters": true // Kullanılmayan parametrelere izin verme
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

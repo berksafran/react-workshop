@@ -41,9 +41,9 @@ export default function Home() {
               <p><Link href="/day1/03-hooks">📚 Tüm Konular</Link></p>
               <ul>
                 <li><Link href="/day1/03-hooks/01-useState-useEffect">useState & useEffect</Link></li>
-                <li><Link href="/day1/03-hooks/02-useCallback-useMemo">useCallback & useMemo</Link></li>
-                <li><Link href="/day1/03-hooks/03-useReducer">useReducer</Link></li>
-                <li><Link href="/day1/03-hooks/04-custom-hooks">Custom Hooks</Link></li>
+                <li><Link href="/day1/03-hooks/02-useReducer">useReducer</Link></li>
+                <li><Link href="/day1/03-hooks/03-custom-hooks">Custom Hooks</Link></li>
+                <li><Link href="/day1/03-hooks/04-memoization">Memoization (useCallback, useMemo, React.memo)</Link></li>
                 <li><Link href="/day1/03-hooks/05-react-compiler">React Compiler (Next.js 16)</Link></li>
               </ul>
             </div>

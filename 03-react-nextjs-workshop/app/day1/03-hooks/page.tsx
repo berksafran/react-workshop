@@ -12,24 +12,24 @@ export default function Day1HooksPage() {
         },
         {
             id: 2,
-            title: 'useCallback & useMemo',
-            description: 'Performans optimizasyonu hooks',
-            path: '/day1/03-hooks/02-useCallback-useMemo',
-            emoji: '⚡'
-        },
-        {
-            id: 3,
             title: 'useReducer',
             description: 'Complex state management (Redux benzeri)',
-            path: '/day1/03-hooks/03-useReducer',
+            path: '/day1/03-hooks/02-useReducer',
             emoji: '🔄'
         },
         {
-            id: 4,
+            id: 3,
             title: 'Custom Hooks',
             description: 'Kendi hook\'larını oluştur (useFetch, useLocalStorage)',
-            path: '/day1/03-hooks/04-custom-hooks',
+            path: '/day1/03-hooks/03-custom-hooks',
             emoji: '🛠️'
+        },
+        {
+            id: 4,
+            title: 'Memoization (useCallback, useMemo, React.memo)',
+            description: 'Performans optimizasyonu ve memoization teknikleri',
+            path: '/day1/03-hooks/04-memoization',
+            emoji: '⚡'
         },
         {
             id: 5,

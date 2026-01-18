@@ -1,10 +1,125 @@
-# useCallback & useMemo - Detaylı Notlar
+# Memoization - Detaylı Notlar
 
 ⚠️ **Kod örnekleri için `components/PerformanceDemo.tsx` dosyasına bakın.**
 
+## Memoization Nedir?
+
+Memoization, bir fonksiyonun veya hesaplamanın sonucunu **önbelleğe alma** tekniğidir. Aynı girdi için tekrar hesaplama yapmak yerine, önbellekteki sonucu döner.
+
+### Temel Konsept
+
+```typescript
+// Memoization olmadan
+function expensiveCalculation(n) {
+  console.log("Hesaplanıyor...");
+  return n * 2;
+}
+
+expensiveCalculation(5); // Hesaplanıyor... → 10
+expensiveCalculation(5); // Hesaplanıyor... → 10 (Tekrar hesaplandı!)
+
+// Memoization ile
+const cache = {};
+function memoizedCalculation(n) {
+  if (cache[n]) {
+    console.log("Cache'ten döndü");
+    return cache[n];
+  }
+  console.log("Hesaplanıyor...");
+  cache[n] = n * 2;
+  return cache[n];
+}
+
+memoizedCalculation(5); // Hesaplanıyor... → 10
+memoizedCalculation(5); // Cache'ten döndü → 10 (Önbellekten!)
+```
+
+### React'te Memoization
+
+React'te 3 ana memoization aracı var:
+
+1. **useCallback** → Fonksiyonları memoize eder
+2. **useMemo** → Değerleri/hesaplamaları memoize eder
+3. **React.memo** → Component'leri memoize eder
+
+### Neden Gerekli?
+
+React'te her state değişikliğinde component **yeniden render** edilir. Bu da:
+
+- Fonksiyonların yeniden oluşturulması
+- Hesaplamaların tekrar yapılması
+- Child component'lerin gereksiz re-render'ı
+
+demektir. Memoization bu maliyetleri azaltır!
+
+### Örnek: Re-render Problemi
+
+```typescript
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  // Her render'da YENİ fonksiyon oluşturulur
+  const handleClick = () => {
+    console.log('Clicked');
+  };
+
+  // Her render'da YENİ obje oluşturulur
+  const config = { theme: 'dark' };
+
+  return (
+    <>
+      <button onClick={() => setCount(count + 1)}>Count: {count}</button>
+      {/* handleClick ve config her zaman "farklı" olduğu için Child re-render olur */}
+      <Child onClick={handleClick} config={config} />
+    </>
+  );
+}
+
+const Child = memo(({ onClick, config }) => {
+  console.log('Child rendered'); // Her parent render'ında çalışır!
+  return <button onClick={onClick}>Click</button>;
+});
+```
+
+### Çözüm: Memoization
+
+```typescript
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  // useCallback: Fonksiyon memoize edildi
+  const handleClick = useCallback(() => {
+    console.log('Clicked');
+  }, []); // Dependency boş → Hiç değişmez
+
+  // useMemo: Obje memoize edildi
+  const config = useMemo(() => ({ theme: 'dark' }), []);
+
+  return (
+    <>
+      <button onClick={() => setCount(count + 1)}>Count: {count}</button>
+      {/* handleClick ve config aynı kaldığı için Child re-render OLMAZ */}
+      <Child onClick={handleClick} config={config} />
+    </>
+  );
+}
+```
+
+### ⚠️ Dikkat: Aşırı Kullanma!
+
+Memoization **bedava değil**! Her memoization:
+
+- Ekstra bellek kullanır (cache)
+- Dependency karşılaştırması yapar
+- Kod karmaşıklığı artar
+
+**Kural:** Sadece **gerçekten gerektiğinde** kullan. Profiler ile ölç!
+
+---
+
 ## Genel Bakış
 
-useCallback ve useMemo performans optimizasyonu için kullanılır. **Ama dikkatli kullan!** Gereksiz kullanım performansı düşürür.
+useCallback, useMemo ve React.memo performans optimizasyonu için kullanılır. **Ama dikkatli kullan!** Gereksiz kullanım performansı düşürür.
 
 ---
 

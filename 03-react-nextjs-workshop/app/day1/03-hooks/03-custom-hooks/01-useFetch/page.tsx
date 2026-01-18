@@ -76,7 +76,9 @@ export default function UseFetchPage() {
                 </section>
 
                 <section className={styles.section}>
-                    <h2>💻 Kullanım</h2>
+                    <h2>💻 Kullanım Örnekleri</h2>
+
+                    <h3 style={{ marginTop: '1.5rem' }}>Temel Kullanım</h3>
                     <div className={styles.code}>
                         <pre>{`function UserList() {
   const { data, loading, error } = useFetch<User[]>('/api/users');
@@ -89,6 +91,39 @@ export default function UseFetchPage() {
       {data.map(user => <li>{user.name}</li>)}
     </ul>
   );
+}`}</pre>
+                    </div>
+
+                    <h3 style={{ marginTop: '1.5rem' }}>Post Detayı</h3>
+                    <div className={styles.code}>
+                        <pre>{`function PostDetail({ postId }: { postId: number }) {
+  const { data: post, loading } = useFetch<Post>(
+    \`https://jsonplaceholder.typicode.com/posts/\${postId}\`
+  );
+
+  if (loading) return <Spinner />;
+  
+  return (
+    <article>
+      <h1>{post?.title}</h1>
+      <p>{post?.body}</p>
+    </article>
+  );
+}`}</pre>
+                    </div>
+
+                    <h3 style={{ marginTop: '1.5rem' }}>Conditional Fetching</h3>
+                    <div className={styles.code}>
+                        <pre>{`function UserProfile({ userId }: { userId?: number }) {
+  // userId varsa fetch et
+  const url = userId ? \`/api/users/\${userId}\` : null;
+  const { data, loading, error } = useFetch<User>(url);
+
+  if (!userId) return <div>Kullanıcı seçin</div>;
+  if (loading) return <div>Yükleniyor...</div>;
+  if (error) return <div>Hata: {error}</div>;
+  
+  return <div>{data?.name}</div>;
 }`}</pre>
                     </div>
                 </section>

@@ -6,7 +6,7 @@ export default function CustomHooksHomeworkPage() {
         <div className={styles.container}>
             <header className={styles.header}>
                 <h1>Ödev: Custom Hooks</h1>
-                <p>useToggle ve daha fazla custom hook oluştur</p>
+                <p>useToggle ve useCounter hook'larını oluştur</p>
             </header>
 
             <div className={styles.content}>
@@ -22,8 +22,13 @@ export default function CustomHooksHomeworkPage() {
   
   return (
     <>
-      <button onClick={setTrue}>Open</button>
-      {value && <div>Modal Content</div>}
+      <button onClick={setTrue}>Open Modal</button>
+      {value && (
+        <div className="modal">
+          <h2>Modal Content</h2>
+          <button onClick={setFalse}>Close</button>
+        </div>
+      )}
     </>
   );
 }`}</pre>
@@ -31,32 +36,48 @@ export default function CustomHooksHomeworkPage() {
                     </div>
 
                     <div style={{ marginTop: '2rem' }}>
-                        <h3>2. useCounter Hook</h3>
-                        <p>Sayaç işlemleri için hook (min/max limitli).</p>
-                    </div>
-
-                    <div style={{ marginTop: '2rem' }}>
-                        <h3>3. useAsync Hook</h3>
-                        <p>Async işlemler için hook (loading, error, data).</p>
-                    </div>
-
-                    <div style={{ marginTop: '2rem' }}>
-                        <h3>4. useForm Hook</h3>
-                        <p>Form yönetimi ve validation için hook.</p>
+                        <h3>2. useCounter Hook ⭐</h3>
+                        <p>Sayaç işlemleri için hook (min/max limitli, step parametresi).</p>
+                        <div className={styles.code}>
+                            <pre>{`function Counter() {
+  const { count, increment, decrement, reset } = useCounter(0, { 
+    min: 0, 
+    max: 10,
+    step: 1 
+  });
+  
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment} disabled={count >= 10}>+</button>
+      <button onClick={decrement} disabled={count <= 0}>-</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}`}</pre>
+                        </div>
                     </div>
                 </section>
 
                 <section className={styles.section}>
                     <h2>📖 Detaylı Açıklama</h2>
                     <p>
-                        Tüm görev detayları için <code>ODEV-README.md</code> dosyasına bakın.
+                        Tüm görev detayları, gereksinimler ve ipuçları için <code>ODEV-README.md</code> dosyasına bakın.
+                    </p>
+                </section>
+
+                <section className={styles.section}>
+                    <h2>✅ Çözüm</h2>
+                    <p>
+                        Ödevini bitirdikten sonra çözümleri görmek için:
                     </p>
                     <div style={{ marginTop: '1rem' }}>
                         <Link
-                            href="/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/ODEV-README.md"
-                            style={{ color: '#667eea', textDecoration: 'underline' }}
+                            href="/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/solution"
+                            className={styles.button}
+                            style={{ display: 'inline-block', textDecoration: 'none' }}
                         >
-                            ODEV-README.md dosyasını aç →
+                            📝 Çözümleri Gör
                         </Link>
                     </div>
                 </section>
@@ -68,13 +89,13 @@ export default function CustomHooksHomeworkPage() {
                             <strong>TypeScript kullan</strong> → Generic types ile tip güvenliği
                         </li>
                         <li>
-                            <strong>Hook kurallarına uy</strong> → "use" ile başla
+                            <strong>Hook kurallarına uy</strong> → "use" ile başla, üst seviyede çağır
                         </li>
                         <li>
-                            <strong>Cleanup yap</strong> → useEffect cleanup function'ları
+                            <strong>Test et</strong> → Her hook için demo component oluştur
                         </li>
                         <li>
-                            <strong>Test et</strong> → Her hook için demo component
+                            <strong>Kod kalitesi</strong> → Temiz, okunabilir kod yaz
                         </li>
                     </ul>
                 </section>

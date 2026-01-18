@@ -82,6 +82,39 @@ export default function UseLocalStoragePage() {
                     <UseLocalStorageDemo />
                 </section>
 
+                <section className={styles.section}>
+                    <h2>💻 Kullanım</h2>
+                    <div className={styles.code}>
+                        <pre>{`function Settings() {
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [username, setUsername] = useLocalStorage('username', '');
+  
+  return (
+    <div>
+      <h3>Ayarlar</h3>
+      
+      <div>
+        <label>Tema: </label>
+        <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+        </button>
+      </div>
+      
+      <div>
+        <label>Kullanıcı Adı: </label>
+        <input 
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      
+      <p>💡 Sayfayı yenile, ayarlar kalıcı!</p>
+    </div>
+  );
+}`}</pre>
+                    </div>
+                </section>
+
                 <section className={styles.highlights}>
                     <h3>🎯 Önemli Noktalar</h3>
                     <ul>

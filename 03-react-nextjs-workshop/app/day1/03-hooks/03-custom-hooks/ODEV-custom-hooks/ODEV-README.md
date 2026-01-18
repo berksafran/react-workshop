@@ -40,12 +40,6 @@ function Modal() {
 }
 ```
 
-**İpuçları:**
-
-- `useState` kullan
-- Return değer olarak object döndür: `{ value, toggle, setTrue, setFalse }`
-- `toggle` fonksiyonunda `prev => !prev` kullan
-
 ---
 
 ### 2. useCounter Hook ⭐
@@ -83,40 +77,6 @@ function Counter() {
   );
 }
 ```
-
-**İpuçları:**
-
-- `useState` kullan
-- `min` ve `max` kontrolü yap
-- `Math.min` ve `Math.max` kullanabilirsin
-- Return değer olarak object döndür
-
----
-
-## Bonus Görevler (Opsiyonel)
-
-Eğer erken bitirirsen:
-
-### 3. useDebounce Hook
-
-Debounce değerler için hook (search input için).
-
-```typescript
-function SearchInput() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
-
-  useEffect(() => {
-    if (debouncedSearchTerm) {
-      fetch(`/api/search?q=${debouncedSearchTerm}`);
-    }
-  }, [debouncedSearchTerm]);
-
-  return <input onChange={e => setSearchTerm(e.target.value)} />;
-}
-```
-
----
 
 ## Gereksinimler
 

@@ -1,10 +1,34 @@
 # Async/Await ve Promise - Detaylı Notlar
 
-⚠️ **Kod örnekleri için `index.js` dosyasına bakın.**
+⚠️ **Kod örnekleri için ilgili `.js` dosyalarına bakın.**
 
 ## Genel Bakış
 
 Asenkron programlama JavaScript'in en önemli konularından biri. React'ta API çağrıları, useEffect, veri yükleme gibi işlemlerde sürekli kullanılır.
+
+## 0. Callback Hell - Neden Async/Await Gerekli?
+
+### Problem: İç İçe Callback'ler
+
+Eski JavaScript'te async işlemler callback ile yapılırdı. Bu çok hızlı karmaşıklaşır:
+
+- İç içe callback'ler (Pyramid of Doom)
+- Okunması ve bakımı zor
+- Hata yönetimi karmaşık
+- Debugging zor
+
+### Çözüm: Async/Await
+
+Modern JavaScript'te async/await kullanırız:
+
+- Senkron kod gibi okunur
+- Try-catch ile hata yönetimi
+- Debugging kolay
+- Daha temiz ve bakımı kolay
+
+**Detay için:** `00-callback-hell.js` ve `00-callback-hell-solution.js` dosyalarına bakın.
+
+---
 
 ## 1. Promise Nedir?
 
@@ -14,23 +38,13 @@ Promise, gelecekte tamamlanacak bir işlemi temsil eder. 3 durumu vardır:
 - **fulfilled**: Başarıyla tamamlandı
 - **rejected**: Hata ile sonuçlandı
 
-**Detay için:** `index.js` dosyasındaki "Promise Temelleri" bölümüne bakın.
+**Detay için:** `01-promise-basics.js` dosyasına bakın.
 
 ---
 
-## 2. Promise Chaining vs Async/Await
+## 2. Async/Await Kullanımı
 
-### Promise Chaining (Eski Yöntem)
-
-**Sorunlar:**
-
-- Okunması zor ("callback hell" benzeri)
-- Hata yönetimi karmaşık
-- Debugging zor
-
-### Async/Await (Modern Yöntem)
-
-**Avantajlar:**
+### Avantajlar
 
 - Senkron kod gibi okunur
 - Try-catch ile hata yönetimi
@@ -38,7 +52,7 @@ Promise, gelecekte tamamlanacak bir işlemi temsil eder. 3 durumu vardır:
 
 ⚠️ **Best Practice:** Her zaman async/await kullan, Promise chaining yerine!
 
-**Detay için:** `index.js` dosyasındaki "Async/Await" bölümüne bakın.
+**Detay için:** `02-async-await.js` dosyasına bakın.
 
 ---
 
@@ -65,11 +79,49 @@ Promise, gelecekte tamamlanacak bir işlemi temsil eder. 3 durumu vardır:
 - **Promise.all**: Bir hata tüm işlemi durdurur
 - **Promise.allSettled**: Hepsi tamamlanır, hata olsa bile
 
-**Detay için:** `index.js` dosyasındaki "Paralel İşlemler" bölümüne bakın.
+**Detay için:** `03-promise-all.js` dosyasına bakın.
 
 ---
 
-## 4. React'ta Kullanım
+## 4. Hata Yönetimi
+
+### Try-Catch
+
+Her async function'da try-catch kullan!
+
+### Birden Fazla Try-Catch
+
+Her işlem için ayrı try-catch kullanabilirsin:
+
+- Kritik işlem başarısız olursa erken çık
+- Kritik olmayan işlem başarısız olursa default değer kullan
+
+**Detay için:** `04-error-handling.js` dosyasına bakın.
+
+---
+
+## 5. JavaScript Single Thread - Paralel İşlemler Nasıl Olur?
+
+⚠️ **Önemli Kavram:** JavaScript single thread'dir ama paralel gibi çalışır!
+
+### Event Loop
+
+- JavaScript tek thread'te çalışır (bir seferde bir iş)
+- Ama async işlemler "beklerken" diğer işlere geçer (non-blocking)
+- setTimeout, fetch gibi işlemler browser/Node.js tarafından arka planda yürütülür (Web APIs)
+- Bitince Event Loop ile geri döner
+
+### Nasıl Paralel Gibi Görünür?
+
+- Tüm task'lar aynı anda BAŞLAR (setTimeout/fetch'e verilir)
+- JavaScript beklemeden devam eder
+- En uzun task bitince Promise.all tamamlanır
+
+**Detay için:** `05-single-thread-paralel.js` dosyasına bakın.
+
+---
+
+## 6. React'ta Kullanım
 
 ### useEffect ile Veri Çekme
 
@@ -86,28 +138,9 @@ Component unmount olduğunda devam eden istekleri iptal etmek için.
 
 ⚠️ **Önemli:** Cleanup yapmazsan memory leak olur!
 
-**Detay için:** `index.js` dosyasındaki "React Örneği" bölümüne bakın.
-
 ---
 
-## 5. Hata Yönetimi
-
-### Try-Catch
-
-Her async function'da try-catch kullan!
-
-### Birden Fazla Try-Catch
-
-Her işlem için ayrı try-catch kullanabilirsin:
-
-- Kritik işlem başarısız olursa erken çık
-- Kritik olmayan işlem başarısız olursa default değer kullan
-
-**Detay için:** `index.js` dosyasındaki "Hata Yönetimi" bölümüne bakın.
-
----
-
-## 6. Yaygın Hatalar
+## Yaygın Hatalar
 
 ⚠️ **Hata 1:** await Unutmak
 
@@ -123,8 +156,6 @@ Her işlem için ayrı try-catch kullanabilirsin:
 
 - Performans kaybı
 - Promise.all kullan
-
-**Detay için:** `index.js` dosyasındaki örneklere bakın.
 
 ---
 
@@ -158,8 +189,8 @@ Her işlem için ayrı try-catch kullanabilirsin:
 3. **Soru:** Promise.all ne zaman kullanılır?
    **Cevap:** Birbirinden bağımsız paralel işlemler için.
 
-4. **Soru:** Cleanup neden gerekli?
-   **Cevap:** Component unmount olduğunda devam eden istekleri iptal etmek için.
+4. **Soru:** JavaScript single thread ama paralel nasıl çalışır?
+   **Cevap:** Event Loop sayesinde. Async işlemler arka planda (Web APIs) çalışır.
 
 ---
 

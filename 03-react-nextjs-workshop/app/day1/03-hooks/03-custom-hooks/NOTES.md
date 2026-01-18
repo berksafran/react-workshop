@@ -1,6 +1,9 @@
 # Custom Hooks - Detaylı Notlar
 
-⚠️ **Kod örnekleri için `hooks/customHooks.ts` ve `components/CustomHooksDemo.tsx` dosyalarına bakın.**
+⚠️ **Kod örnekleri için ilgili klasörlere bakın:**
+
+- `01-useFetch/useFetch.ts`
+- `02-useLocalStorage/useLocalStorage.ts`
 
 ## Genel Bakış
 
@@ -103,7 +106,7 @@ function UserList() {
 }
 ```
 
-**Detay için:** `hooks/customHooks.ts` ve `components/CustomHooksDemo.tsx` → `UseFetchDemo`
+**Detay için:** `01-useFetch/` klasörü
 
 ---
 
@@ -149,86 +152,7 @@ function Settings() {
 
 ⚠️ **Önemli:** Lazy initialization kullan! Her render'da localStorage okuma.
 
-**Detay için:** `hooks/customHooks.ts` ve `components/CustomHooksDemo.tsx` → `UseLocalStorageDemo`
-
----
-
-## useToggle - Boolean State
-
-### Implementasyon
-
-```typescript
-function useToggle(initialValue = false) {
-  const [value, setValue] = useState(initialValue);
-
-  const toggle = () => setValue((prev) => !prev);
-  const setTrue = () => setValue(true);
-  const setFalse = () => setValue(false);
-
-  return { value, toggle, setTrue, setFalse };
-}
-```
-
-### Kullanım
-
-```typescript
-function Modal() {
-  const { value: isOpen, toggle, setTrue, setFalse } = useToggle();
-
-  return (
-    <>
-      <button onClick={setTrue}>Open</button>
-      {isOpen && <div>Modal Content</div>}
-    </>
-  );
-}
-```
-
-**Detay için:** `hooks/customHooks.ts` ve `components/CustomHooksDemo.tsx` → `UseToggleDemo`
-
----
-
-## useDebounce - Debounce Değerler
-
-### Implementasyon
-
-```typescript
-function useDebounce<T>(value: T, delay: number): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value);
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    return () => clearTimeout(handler);
-  }, [value, delay]);
-
-  return debouncedValue;
-}
-```
-
-### Kullanım
-
-```typescript
-function SearchInput() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
-
-  useEffect(() => {
-    // API call sadece debounced değer değişince
-    if (debouncedSearchTerm) {
-      fetch(`/api/search?q=${debouncedSearchTerm}`);
-    }
-  }, [debouncedSearchTerm]);
-
-  return <input onChange={e => setSearchTerm(e.target.value)} />;
-}
-```
-
-⚠️ **Önemli:** Search input'lar için çok kullanışlı! Her tuş vuruşunda API call yapma.
-
-**Detay için:** `hooks/customHooks.ts` ve `components/CustomHooksDemo.tsx` → `UseDebounceDemo`
+**Detay için:** `02-useLocalStorage/` klasörü
 
 ---
 
@@ -257,26 +181,21 @@ function useApi<T>(endpoint: string) {
 }
 ```
 
-### 2. Form Handling Pattern
+### 2. State Management Pattern
 
 ```typescript
-function useForm<T>(initialValues: T) {
-  const [values, setValues] = useState(initialValues);
+function useToggle(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const toggle = () => setValue((prev) => !prev);
+  const setTrue = () => setValue(true);
+  const setFalse = () => setValue(false);
 
-  const reset = () => setValues(initialValues);
-
-  return { values, handleChange, reset };
+  return { value, toggle, setTrue, setFalse };
 }
 ```
 
-### 3. Window Event Pattern
+### 3. Side Effect Pattern
 
 ```typescript
 function useWindowSize() {
@@ -324,6 +243,24 @@ function useWindowSize() {
 
 ## Yaygın Custom Hooks
 
+### useDebounce
+
+```typescript
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+```
+
 ### useOnClickOutside
 
 ```typescript
@@ -356,25 +293,6 @@ function usePrevious<T>(value: T): T | undefined {
 }
 ```
 
-### useInterval
-
-```typescript
-function useInterval(callback: () => void, delay: number | null) {
-  const savedCallback = useRef(callback);
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
-
-  useEffect(() => {
-    if (delay === null) return;
-
-    const id = setInterval(() => savedCallback.current(), delay);
-    return () => clearInterval(id);
-  }, [delay]);
-}
-```
-
 ---
 
 ## Sık Sorulan Sorular
@@ -390,6 +308,14 @@ function useInterval(callback: () => void, delay: number | null) {
 
 4. **Soru:** Custom hook'u test edebilir miyim?
    **Cevap:** Evet, @testing-library/react-hooks ile.
+
+---
+
+## Ödev
+
+useToggle ve useCounter hook'larını oluştur!
+
+**Detay için:** `ODEV-custom-hooks/ODEV-README.md`
 
 ---
 

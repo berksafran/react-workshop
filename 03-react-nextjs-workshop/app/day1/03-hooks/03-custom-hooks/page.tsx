@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '../01-react-core/page.module.scss';
+import styles from '../../01-react-core/page.module.scss';
 
 export default function CustomHooksIndexPage() {
     const hooks = [

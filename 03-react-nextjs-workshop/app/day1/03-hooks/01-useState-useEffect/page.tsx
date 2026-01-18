@@ -1,11 +1,24 @@
-'use client';
-
 import Link from 'next/link';
-import styles from '../../01-react-core/01-declarative-vs-imperative/page.module.scss';
-import { StateBasicDemo, StateFunctionalDemo, StateLazyDemo } from './components/StateDemo';
-import { EffectBasicDemo, EffectCleanupDemo, EffectFetchDemo } from './components/EffectDemo';
+import styles from '../../01-react-core/page.module.scss';
 
-export default function UseStateUseEffectPage() {
+export default function UseStateUseEffectIndexPage() {
+    const hooks = [
+        {
+            id: 1,
+            title: 'useState',
+            description: 'Component state yönetimi - Temel, Functional Updates, Lazy Init',
+            path: '/day1/03-hooks/01-useState-useEffect/01-useState',
+            emoji: '📦'
+        },
+        {
+            id: 2,
+            title: 'useEffect',
+            description: 'Side effects - API calls, subscriptions, cleanup',
+            path: '/day1/03-hooks/01-useState-useEffect/02-useEffect',
+            emoji: '⚡'
+        }
+    ];
+
     return (
         <div className={styles.container}>
             <header className={styles.header}>
@@ -15,26 +28,26 @@ export default function UseStateUseEffectPage() {
 
             <div className={styles.content}>
                 <section className={styles.section}>
-                    <h2>🎣 useState</h2>
+                    <h2>🎣 Temel Hooks</h2>
                     <p className={styles.description}>
-                        Component'te state tutmak için kullanılır. State değişince component re-render edilir.
+                        useState ve useEffect, React'in en çok kullanılan hooks'larıdır.
+                        Her React developer'ın derinlemesine bilmesi gerekir.
                     </p>
-
-                    <StateBasicDemo />
-                    <StateFunctionalDemo />
-                    <StateLazyDemo />
                 </section>
 
-                <section className={styles.section}>
-                    <h2>⚡ useEffect</h2>
-                    <p className={styles.description}>
-                        Side effect'ler için kullanılır: API çağrıları, subscriptions, timers, DOM manipülasyonu.
-                    </p>
-
-                    <EffectBasicDemo />
-                    <EffectCleanupDemo />
-                    <EffectFetchDemo />
-                </section>
+                <div className={styles.grid}>
+                    {hooks.map((hook) => (
+                        <Link
+                            key={hook.id}
+                            href={hook.path}
+                            className={styles.card}
+                        >
+                            <div className={styles.emoji}>{hook.emoji}</div>
+                            <h2>{hook.title}</h2>
+                            <p>{hook.description}</p>
+                        </Link>
+                    ))}
+                </div>
 
                 <section className={styles.highlights}>
                     <h3>🎯 Önemli Noktalar</h3>
@@ -44,9 +57,6 @@ export default function UseStateUseEffectPage() {
                         </li>
                         <li>
                             <strong>Functional Updates:</strong> Önceki state'e göre güncelleme için kullan
-                        </li>
-                        <li>
-                            <strong>Lazy Initialization:</strong> Pahalı hesaplamalar için
                         </li>
                         <li>
                             <strong>useEffect Dependency:</strong> Boş [] = mount, [dep] = dep değişince

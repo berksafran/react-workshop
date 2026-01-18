@@ -83,7 +83,7 @@ const [count, setCount] = useState(0);
                 </section>
             </div>
 
-            <Link href="/day1/01-react-core" className={styles.backLink}>
+            <Link href="/day1/02-react-core" className={styles.backLink}>
                 ← Geri Dön
             </Link>
         </div>

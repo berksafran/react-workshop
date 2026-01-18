@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '../../../01-react-core/01-declarative-vs-imperative/page.module.scss';
-import { EffectBasicDemo } from '../components/EffectBasicDemo';
-import { EffectCleanupDemo } from '../components/EffectCleanupDemo';
-import { EffectFetchDemo } from '../components/EffectFetchDemo';
+import { EffectBasicDemo } from './components/EffectBasicDemo';
+import { EffectCleanupDemo } from './components/EffectCleanupDemo';
+import { EffectFetchDemo } from './components/EffectFetchDemo';
+import styles from '../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 
 export default function UseEffectPage() {
     return (

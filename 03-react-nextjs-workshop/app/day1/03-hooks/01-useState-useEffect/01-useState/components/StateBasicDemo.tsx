@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '../../../01-react-core/01-declarative-vs-imperative/page.module.scss';
+import styles from '../../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 
 export function StateBasicDemo() {
     const [count, setCount] = useState(0);

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from '../../../01-react-core/01-declarative-vs-imperative/page.module.scss';
+import styles from '../../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 
 export function EffectCleanupDemo() {
     const [seconds, setSeconds] = useState(0);

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '../01-react-core/01-declarative-vs-imperative/page.module.scss';
+import styles from '../02-react-core/01-declarative-vs-imperative/page.module.scss';
 
 export default function ReactCompilerPage() {
     return (

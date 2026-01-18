@@ -27,5 +27,3 @@ const cards = users.map((u) => ({
   id: u.id,
 }));
 console.log("Kartlar:", cards);
-
-console.log("\n=== ÖRNEK TAMAMLANDI ===");

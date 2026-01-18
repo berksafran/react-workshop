@@ -6,8 +6,6 @@
 
 Reduce, array metodlarının en güçlüsü ama en az anlaşılanıdır. Bir array'i tek bir değere indirgeyebilir (number, string, object, array, vs.).
 
-⚠️ **Önceki eğitimde hiç girilmemiş, bu yüzden önemli!**
-
 ## 1. Reduce Nasıl Çalışır?
 
 ### Parametreler

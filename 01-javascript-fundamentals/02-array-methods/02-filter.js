@@ -21,5 +21,3 @@ const users = [
 
 const adults = users.filter((u) => u.age >= 28);
 console.log("28+ yaş:", adults);
-
-console.log("\n=== ÖRNEK TAMAMLANDI ===");

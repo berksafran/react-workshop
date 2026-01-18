@@ -34,5 +34,3 @@ const availableProducts = products
   }));
 
 console.log("Stokta olan ürünler:", availableProducts);
-
-console.log("\n=== ÖRNEK TAMAMLANDI ===");

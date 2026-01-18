@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '../../day1-react-core/01-declarative-vs-imperative/page.module.scss';
+import styles from '../../01-react-core/01-declarative-vs-imperative/page.module.scss';
 import { StateBasicDemo, StateFunctionalDemo, StateLazyDemo } from './components/StateDemo';
 import { EffectBasicDemo, EffectCleanupDemo, EffectFetchDemo } from './components/EffectDemo';
 

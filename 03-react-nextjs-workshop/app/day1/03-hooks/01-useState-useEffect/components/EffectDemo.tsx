@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from '../../day1-react-core/01-declarative-vs-imperative/page.module.scss';
+import styles from '../../../01-react-core/01-declarative-vs-imperative/page.module.scss';
 
 // useEffect Temel Kullanım
 export function EffectBasicDemo() {

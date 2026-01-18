@@ -1,6 +1,9 @@
 /**
  * REACT COMPONENT TİPLERİ - BASIT PROPS
  * Detaylı notlar: NOTES.md
+ * 
+ * İki yöntem var: FC<> veya direkt props'a tip verme
+ * Bu örnekte Yöntem 2 kullanıyoruz (direkt props'a tip verme)
  */
 
 // Basit button component props
@@ -11,12 +14,12 @@ type ButtonProps = {
     disabled?: boolean;
 };
 
-// ❌ ESKİ YÖNTEM
+// YÖNTEM 1: React.FC<Props>
 // const Button: React.FC<ButtonProps> = ({ text, onClick, variant, disabled }) => {
 //   return <button onClick={onClick}>{text}</button>;
 // };
 
-// ✅ YENİ YÖNTEM - Direkt props'a tip ver!
+// YÖNTEM 2: Direkt props'a tip ver (Bu workshop'ta bunu kullanıyoruz)
 const Button = ({ text, onClick, variant = 'primary', disabled = false }: ButtonProps) => {
     return (
         <button

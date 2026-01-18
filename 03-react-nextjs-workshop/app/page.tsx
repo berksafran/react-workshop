@@ -16,10 +16,12 @@ export default function Home() {
           <div className={styles.topics}>
             <div className={styles.topic}>
               <h3>React Core Concepts</h3>
+              <p><Link href="/day1-react-core">📚 Tüm Konular</Link></p>
               <ul>
-                <li><Link href="/day1/react-core/declarative-vs-imperative">Declarative vs Imperative</Link></li>
-                <li><Link href="/day1/react-core/state-props-demo">State & Props Demo</Link></li>
-                <li><Link href="/day1/react-core/lifecycle-demo">Lifecycle Demo</Link></li>
+                <li><Link href="/day1-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
+                <li><Link href="/day1-react-core/02-state-and-props">State & Props</Link></li>
+                <li><Link href="/day1-react-core/03-lifecycle">Lifecycle</Link></li>
+                <li><Link href="/day1-react-core/04-counter-app">Counter App (Mini Ödev)</Link></li>
               </ul>
             </div>
 

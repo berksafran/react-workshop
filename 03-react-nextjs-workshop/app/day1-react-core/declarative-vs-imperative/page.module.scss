@@ -1,0 +1,128 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: #666;
+    }
+}
+
+.content {
+    margin-bottom: 3rem;
+}
+
+.section {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+}
+
+.demo {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+
+    .counter {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+
+        .count {
+            font-weight: bold;
+            color: #667eea;
+        }
+    }
+
+    .button {
+        padding: 0.75rem 1.5rem;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: #764ba2;
+        }
+    }
+}
+
+.code {
+    background: #2d2d2d;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+
+    pre {
+        color: #f8f8f2;
+        margin: 0;
+        font-family: 'Monaco', 'Courier New', monospace;
+        font-size: 0.9rem;
+    }
+}
+
+.highlights {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 12px;
+    padding: 2rem;
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding: 0.5rem 0;
+            line-height: 1.6;
+
+            strong {
+                color: #667eea;
+            }
+        }
+    }
+}
+
+.backLink {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: #764ba2;
+    }
+}

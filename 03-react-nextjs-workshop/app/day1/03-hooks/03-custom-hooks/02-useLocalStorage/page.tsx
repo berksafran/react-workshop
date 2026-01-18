@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 import { useLocalStorage } from './useLocalStorage';

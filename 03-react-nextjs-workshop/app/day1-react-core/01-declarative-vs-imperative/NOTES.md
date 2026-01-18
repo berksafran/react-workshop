@@ -61,19 +61,62 @@ React'in hafızada tuttuğu DOM'un kopyası.
 
 ### Nasıl Çalışır?
 
-1. State değişir
-2. React yeni Virtual DOM oluşturur
-3. Eski ve yeni Virtual DOM'u karşılaştırır (diffing)
-4. Sadece değişen kısımları gerçek DOM'a uygular (reconciliation)
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Virtual DOM Süreci                        │
+└─────────────────────────────────────────────────────────────┘
+
+1. State Değişir
+   └─> setCount(5)
+
+2. Yeni Virtual DOM Oluşturulur
+   ┌──────────────┐
+   │ Virtual DOM  │ (Hafızada, hızlı)
+   │   <div>      │
+   │     <h1>5    │
+   │   </div>     │
+   └──────────────┘
+
+3. Diffing (Karşılaştırma)
+   ┌──────────────┐     ┌──────────────┐
+   │ Eski VDOM    │ VS  │ Yeni VDOM    │
+   │   <h1>0      │     │   <h1>5      │  ← Fark bulundu!
+   └──────────────┘     └──────────────┘
+
+4. Reconciliation (Güncelleme)
+   └─> Sadece <h1> içeriği güncellenir
+       (Tüm DOM değil, sadece değişen kısım!)
+
+5. Real DOM Güncellenir
+   ┌──────────────┐
+   │  Real DOM    │ (Tarayıcıda görünen)
+   │   <div>      │
+   │     <h1>5    │ ← Sadece bu güncellendi
+   │   </div>     │
+   └──────────────┘
+```
 
 ### Neden Performanslı?
 
-- Gerçek DOM manipülasyonu pahalı
+- Gerçek DOM manipülasyonu pahalı (yavaş)
 - Virtual DOM hafızada, çok hızlı
-- Batch update yapar
-- Minimum DOM değişikliği
+- Batch update yapar (birden fazla değişikliği toplar)
+- Minimum DOM değişikliği (sadece gerekli kısımlar)
 
 ⚠️ **Önemli:** Virtual DOM sayesinde declarative kod yazıp performans alırız!
+
+### Örnek
+
+```typescript
+// State değişir
+setCount(count + 1);
+
+// React otomatik olarak:
+// 1. Yeni Virtual DOM oluşturur
+// 2. Eski ile karşılaştırır
+// 3. Sadece değişen <h1> içeriğini günceller
+// 4. Tüm component'i yeniden render etmez!
+```
 
 ---
 

@@ -13,7 +13,12 @@ export default function CounterAppPage() {
 
             <div className={styles.content}>
                 <section className={styles.section}>
-                    <h2>� Ödev Açıklaması</h2>
+                    <h2>📝 Ödev Açıklaması</h2>
+
+                    <div className={styles.note}>
+                        <strong>📌 Not:</strong> Çözüm dosyaları (<code>components/</code> klasörü) web uygulamasında görüntülenmiyor.
+                        Çözümleri incelemek için lütfen IDE'den (VS Code) projeyi açın ve ilgili klasöre bakın.
+                    </div>
 
                     <div className={styles.homework}>
                         <h3>Görev:</h3>

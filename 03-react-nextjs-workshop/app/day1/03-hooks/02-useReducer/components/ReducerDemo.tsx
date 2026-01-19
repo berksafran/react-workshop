@@ -3,6 +3,7 @@
 import { useReducer } from 'react';
 import styles from '../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 import { counterReducer } from './counter/reducer';
+import { TodoReducerDemo } from './todo-example/TodoReducerDemo';
 
 // useReducer Demo - Basic Counter Example
 export function ReducerBasicDemo() {
@@ -38,5 +39,14 @@ export function ReducerBasicDemo() {
     );
 }
 
-// Re-export TodoReducerDemo from todo-example directory
-export { TodoReducerDemo } from './todo-example/TodoReducerDemo';
+export function ReducerDemo() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <ReducerBasicDemo />
+            <TodoReducerDemo />
+        </div>
+    );
+}
+
+// Re-export needed types or sub-components if any
+export { TodoReducerDemo };

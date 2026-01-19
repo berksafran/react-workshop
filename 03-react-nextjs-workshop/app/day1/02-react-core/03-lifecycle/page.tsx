@@ -1,7 +1,7 @@
 import path from 'path';
 import { promises as fs } from 'fs';
 import { PageContainer } from '@/app/components/PageContainer';
-import { LifecycleDemo } from './components/LifecycleDemo';
+import { LifecycleContainer } from './components/LifecycleContainer';
 import styles from '../01-declarative-vs-imperative/page.module.scss';
 
 export default async function LifecyclePage() {
@@ -19,7 +19,7 @@ export default async function LifecyclePage() {
                 <p className={styles.description}>
                     Component'in mount, update ve unmount aşamalarını görmek için demo'yu kullanın.
                 </p>
-                <LifecycleDemo count={0} />
+                <LifecycleContainer />
             </section>
 
             <section className={styles.highlights}>

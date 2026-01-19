@@ -83,10 +83,6 @@ export function ReactRouterDemo() {
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </div>
-
-                <div className={styles.info}>
-                    <p>💡 <strong>Dikkat:</strong> Sayfalar arası geçiş yaparken tarayıcının yenilenmediğine dikkat edin!</p>
-                </div>
             </div>
         </BrowserRouter>
     );

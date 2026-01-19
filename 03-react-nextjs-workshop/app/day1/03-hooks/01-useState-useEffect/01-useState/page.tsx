@@ -71,10 +71,6 @@ setState(prev => prev + 1);`}</pre>
                     </ul>
                 </section>
             </div>
-
-            <Link href="/day1/03-hooks/01-useState-useEffect" className={styles.backLink}>
-                ← Geri Dön
-            </Link>
         </div>
     );
 }

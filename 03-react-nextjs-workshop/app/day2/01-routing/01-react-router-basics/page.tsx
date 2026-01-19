@@ -1,29 +1,28 @@
-import Link from 'next/link';
-import styles from '../../../day1/02-react-core/page.module.scss';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { PageContainer } from '@/app/components/PageContainer';
 import { ReactRouterDemo } from './components/ReactRouterDemo';
+import styles from '../../../day1/02-react-core/page.module.scss';
 
-export default function ReactRouterBasicsPage() {
+export default async function ReactRouterBasicsPage() {
+    // Read NOTES.md file
+    const notesPath = path.join(process.cwd(), 'app/day2/01-routing/01-react-router-basics/NOTES.md');
+    const notesContent = await fs.readFile(notesPath, 'utf-8');
+
     return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>⚛️ React Router Basics</h1>
-                <p>Client-side routing temel kavramları</p>
-            </header>
-
-            <div className={styles.content}>
-                <section className={styles.section}>
-                    <h2>🎮 Canlı Demo</h2>
-                    <p>
-                        Aşağıdaki demo'da React Router'ın temel özelliklerini görebilirsiniz.
-                        Sayfalar arası geçiş yaparken tarayıcının yenilenmediğine dikkat edin!
-                    </p>
-                    <ReactRouterDemo />
-                </section>
-            </div>
-
-            <Link href="/day2/01-routing" className={styles.backLink}>
-                ← Routing Ana Sayfa
-            </Link>
-        </div>
+        <PageContainer
+            title="React Router Basics"
+            description="Client-side routing temel kavramları"
+            notesContent={notesContent}
+        >
+            <section className={styles.section}>
+                <h2>🎮 Canlı Demo</h2>
+                <p>
+                    Aşağıdaki demo'da React Router'ın temel özelliklerini görebilirsiniz.
+                    Sayfalar arası geçiş yaparken tarayıcının yenilenmediğine dikkat edin!
+                </p>
+                <ReactRouterDemo />
+            </section>
+        </PageContainer>
     );
 }

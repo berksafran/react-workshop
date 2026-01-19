@@ -1,83 +1,56 @@
-import Link from 'next/link';
-import styles from '../../02-react-core/page.module.scss';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { PageContainer } from '@/app/components/PageContainer';
+import styles from '../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 
-export default function CustomHooksIndexPage() {
-    const hooks = [
-        {
-            id: 1,
-            title: 'useFetch',
-            description: 'API çağrıları için custom hook',
-            path: '/day1/03-hooks/03-custom-hooks/01-useFetch',
-            emoji: '🌐'
-        },
-        {
-            id: 2,
-            title: 'useLocalStorage',
-            description: 'LocalStorage ile state senkronizasyonu',
-            path: '/day1/03-hooks/03-custom-hooks/02-useLocalStorage',
-            emoji: '💾'
-        },
-        {
-            id: 3,
-            title: 'Ödev: useToggle + useCounter',
-            description: 'useToggle ve useCounter hook\'larını oluştur',
-            path: '/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks',
-            emoji: '📚'
-        }
-    ];
+export default async function CustomHooksPage() {
+    const notesPath = path.join(process.cwd(), 'app/day1/03-hooks/03-custom-hooks/NOTES.md');
+    const notesContent = await fs.readFile(notesPath, 'utf-8');
 
     return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>Custom Hooks</h1>
-                <p>Kendi hook'larını oluştur - Reusable logic</p>
-            </header>
+        <PageContainer
+            title="Custom Hooks"
+            description="Kendi hook'larını oluştur ve kodunu yeniden kullan"
+            notesContent={notesContent}
+        >
+            <section className={styles.section}>
+                <h2>🎣 Custom Hook Nedir?</h2>
+                <p className={styles.description}>
+                    Custom hook, React hook'larını kullanarak kendi mantığını kapsülleyen fonksiyondur.
+                    "use" ile başlamalı ve diğer hook'ları çağırabilir.
+                </p>
 
-            <div className={styles.content}>
-                <section className={styles.section}>
-                    <h2>🛠️ Custom Hook Nedir?</h2>
-                    <p className={styles.description}>
-                        Tekrar kullanılabilir logic için kendi hook'larını oluşturabilirsin.
-                        Hook kurallarına uymalı: "use" ile başlamalı, sadece component/hook içinde çağrılmalı.
-                    </p>
-                </section>
+                <div className={styles.code}>
+                    <pre>{`function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-                <div className={styles.grid}>
-                    {hooks.map((hook) => (
-                        <Link
-                            key={hook.id}
-                            href={hook.path}
-                            className={styles.card}
-                        >
-                            <div className={styles.emoji}>{hook.emoji}</div>
-                            <h2>{hook.title}</h2>
-                            <p>{hook.description}</p>
-                        </Link>
-                    ))}
+  useEffect(() => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      });
+  }, [url]);
+
+  return { data, loading };
+}
+
+// Kullanımı
+const { data, loading } = useFetch('/api/users');`}</pre>
                 </div>
+            </section>
 
-                <section className={styles.highlights}>
-                    <h3>🎯 Hook Kuralları</h3>
-                    <ul>
-                        <li>
-                            <strong>"use" ile başla:</strong> useFetch, useLocalStorage
-                        </li>
-                        <li>
-                            <strong>Sadece üst seviyede:</strong> Loop, condition içinde çağırma
-                        </li>
-                        <li>
-                            <strong>Sadece React fonksiyonlarında:</strong> Component veya hook içinde
-                        </li>
-                        <li>
-                            <strong>Reusable logic:</strong> Birden fazla yerde kullanılacak logic için
-                        </li>
-                    </ul>
-                </section>
-            </div>
-
-            <Link href="/day1/03-hooks" className={styles.backLink}>
-                ← Geri Dön
-            </Link>
-        </div>
+            <section className={styles.highlights}>
+                <h3>🎯 Avantajlar</h3>
+                <ul>
+                    <li><strong>Kod tekrarını önler:</strong> Aynı mantığı farklı component'lerde kullan</li>
+                    <li><strong>Okunabilirlik:</strong> Kompleks mantık hook içinde gizlenir</li>
+                    <li><strong>Test edilebilirlik:</strong> Hook'u bağımsız test edebilirsin</li>
+                    <li><strong>Composition:</strong> Hook'ları birleştirerek güçlü yapılar oluştur</li>
+                </ul>
+            </section>
+        </PageContainer>
     );
 }

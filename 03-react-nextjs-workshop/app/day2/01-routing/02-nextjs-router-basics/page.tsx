@@ -1,29 +1,24 @@
-import Link from 'next/link';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { PageContainer } from '@/app/components/PageContainer';
 import styles from '../../../day1/02-react-core/page.module.scss';
 
-export default function NextjsRouterBasicsPage() {
-    return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>▲ Next.js Router Basics</h1>
-                <p>File-based routing ve App Router yapısı</p>
-            </header>
+export default async function NextjsRouterBasicsPage() {
+  // Read NOTES.md file
+  const notesPath = path.join(process.cwd(), 'app/day2/01-routing/02-nextjs-router-basics/NOTES.md');
+  const notesContent = await fs.readFile(notesPath, 'utf-8');
 
-            <div className={styles.content}>
-                <section className={styles.section}>
-                    <h2>📚 Next.js App Router Nedir?</h2>
-                    <p>
-                        Next.js App Router, <strong>dosya sistemi tabanlı</strong> (file-based) bir routing sistemidir.
-                        React Router'dan farklı olarak, route'ları manuel olarak tanımlamanıza gerek yoktur -
-                        dosya yapısı otomatik olarak route'ları oluşturur.
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>🎯 File-Based Routing</h2>
-                    <p>Klasör yapısı = Route yapısı</p>
-                    <div className={styles.code}>
-                        <pre>{`app/
+  return (
+    <PageContainer
+      title="▲ Next.js Router Basics"
+      description="File-based routing ve App Router yapısı"
+      notesContent={notesContent}
+    >
+      <section className={styles.section}>
+        <h2>🎯 File-Based Routing</h2>
+        <p>Klasör yapısı = Route yapısı</p>
+        <div className={styles.code}>
+          <pre>{`app/
 ├── page.tsx          → /
 ├── about/
 │   └── page.tsx      → /about
@@ -31,25 +26,25 @@ export default function NextjsRouterBasicsPage() {
     ├── page.tsx      → /blog
     └── [id]/
         └── page.tsx  → /blog/:id`}</pre>
-                    </div>
-                </section>
+        </div>
+      </section>
 
-                <section className={styles.section}>
-                    <h2>📄 Özel Dosyalar</h2>
+      <section className={styles.section}>
+        <h2>📄 Özel Dosyalar</h2>
 
-                    <h3>1. page.tsx</h3>
-                    <p>Her route için gerekli ana dosya.</p>
-                    <div className={styles.code}>
-                        <pre>{`// app/about/page.tsx
+        <h3>1. page.tsx</h3>
+        <p>Her route için gerekli ana dosya.</p>
+        <div className={styles.code}>
+          <pre>{`// app/about/page.tsx
 export default function AboutPage() {
   return <h1>Hakkımızda</h1>;
 }`}</pre>
-                    </div>
+        </div>
 
-                    <h3>2. layout.tsx</h3>
-                    <p>Birden fazla sayfa için ortak layout.</p>
-                    <div className={styles.code}>
-                        <pre>{`// app/layout.tsx
+        <h3>2. layout.tsx</h3>
+        <p>Birden fazla sayfa için ortak layout.</p>
+        <div className={styles.code}>
+          <pre>{`// app/layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -65,21 +60,21 @@ export default function RootLayout({
     </html>
   );
 }`}</pre>
-                    </div>
+        </div>
 
-                    <h3>3. loading.tsx</h3>
-                    <p>Route yüklenirken gösterilecek UI.</p>
-                    <div className={styles.code}>
-                        <pre>{`// app/dashboard/loading.tsx
+        <h3>3. loading.tsx</h3>
+        <p>Route yüklenirken gösterilecek UI.</p>
+        <div className={styles.code}>
+          <pre>{`// app/dashboard/loading.tsx
 export default function Loading() {
   return <div>Yükleniyor...</div>;
 }`}</pre>
-                    </div>
+        </div>
 
-                    <h3>4. error.tsx</h3>
-                    <p>Hata durumunda gösterilecek UI.</p>
-                    <div className={styles.code}>
-                        <pre>{`'use client';
+        <h3>4. error.tsx</h3>
+        <p>Hata durumunda gösterilecek UI.</p>
+        <div className={styles.code}>
+          <pre>{`'use client';
 
 export default function Error({
   error,
@@ -95,32 +90,32 @@ export default function Error({
     </div>
   );
 }`}</pre>
-                    </div>
+        </div>
 
-                    <h3>5. not-found.tsx</h3>
-                    <p>404 sayfası.</p>
-                    <div className={styles.code}>
-                        <pre>{`// app/not-found.tsx
+        <h3>5. not-found.tsx</h3>
+        <p>404 sayfası.</p>
+        <div className={styles.code}>
+          <pre>{`// app/not-found.tsx
 export default function NotFound() {
   return <h1>404 - Sayfa Bulunamadı</h1>;
 }`}</pre>
-                    </div>
-                </section>
+        </div>
+      </section>
 
-                <section className={styles.section}>
-                    <h2>🔗 Navigation</h2>
+      <section className={styles.section}>
+        <h2>🔗 Navigation</h2>
 
-                    <h3>Link Component</h3>
-                    <div className={styles.code}>
-                        <pre>{`import Link from 'next/link';
+        <h3>Link Component</h3>
+        <div className={styles.code}>
+          <pre>{`import Link from 'next/link';
 
 <Link href="/">Ana Sayfa</Link>
 <Link href="/about">Hakkımızda</Link>`}</pre>
-                    </div>
+        </div>
 
-                    <h3>useRouter Hook</h3>
-                    <div className={styles.code}>
-                        <pre>{`'use client';
+        <h3>useRouter Hook</h3>
+        <div className={styles.code}>
+          <pre>{`'use client';
 import { useRouter } from 'next/navigation';
 
 function MyComponent() {
@@ -132,31 +127,19 @@ function MyComponent() {
   
   return <button onClick={handleClick}>Dashboard'a Git</button>;
 }`}</pre>
-                    </div>
-                </section>
-
-                <section className={styles.highlights}>
-                    <h3>💡 Avantajlar</h3>
-                    <ul>
-                        <li><strong>Otomatik Code Splitting</strong> - Her route otomatik olarak ayrı chunk'lara bölünür</li>
-                        <li><strong>SSR Desteği</strong> - Server-side rendering built-in</li>
-                        <li><strong>Kolay Setup</strong> - Route tanımlamaya gerek yok</li>
-                        <li><strong>Optimized Prefetching</strong> - Link'ler otomatik olarak prefetch edilir</li>
-                        <li><strong>Streaming</strong> - React 18 Suspense ile streaming SSR</li>
-                    </ul>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>📖 Detaylı Açıklama</h2>
-                    <p>
-                        Tüm detaylar, App Router vs Pages Router karşılaştırması ve best practices için <code>NOTES.md</code> dosyasına bakın.
-                    </p>
-                </section>
-            </div>
-
-            <Link href="/day2/01-routing" className={styles.backLink}>
-                ← Routing Ana Sayfa
-            </Link>
         </div>
-    );
+      </section>
+
+      <section className={styles.highlights}>
+        <h3>💡 Avantajlar</h3>
+        <ul>
+          <li><strong>Otomatik Code Splitting</strong> - Her route otomatik olarak ayrı chunk'lara bölünür</li>
+          <li><strong>SSR Desteği</strong> - Server-side rendering built-in</li>
+          <li><strong>Kolay Setup</strong> - Route tanımlamaya gerek yok</li>
+          <li><strong>Optimized Prefetching</strong> - Link'ler otomatik olarak prefetch edilir</li>
+          <li><strong>Streaming</strong> - React 18 Suspense ile streaming SSR</li>
+        </ul>
+      </section>
+    </PageContainer>
+  );
 }

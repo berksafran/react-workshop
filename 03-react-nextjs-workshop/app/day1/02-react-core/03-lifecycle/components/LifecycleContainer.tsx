@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { LifecycleDemo } from './LifecycleDemo';
 import styles from '../page.module.scss';
-import { PageContainer } from '@/app/components/PageContainer';
 
 export function LifecycleContainer() {
     const [isVisible, setIsVisible] = useState(true);
@@ -12,7 +11,7 @@ export function LifecycleContainer() {
 
     const addLog = (message: string, type: 'mount' | 'update' | 'unmount') => {
         const log = {
-            id: Date.now(),
+            id: Date.now() + Math.random(), // Unique ID için random ekle
             message,
             type
         };

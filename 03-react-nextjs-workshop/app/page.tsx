@@ -11,23 +11,22 @@ export default function Home() {
 
       <main className={styles.main}>
         <section className={styles.day}>
-          <h2>📅 Gün 1 - React Fundamentals</h2>
-          <p><Link href="/day1" style={{ color: '#667eea', fontWeight: 'bold' }}>📚 Tüm Konular</Link></p>
-
+          <h2><Link href="/day1" style={{ color: '#667eea', fontWeight: 'bold' }}>📅 Gün 1 - React Fundamentals</Link></h2>
           <div className={styles.topics}>
             <div className={styles.topic}>
               <h3>TypeScript + React</h3>
-              <p><Link href="/day1/01-typescript-react">📚 Tüm Konular</Link></p>
               <ul>
-                <li><Link href="/day1/01-typescript-react/01-simple-props">Simple Props</Link></li>
-                <li><Link href="/day1/01-typescript-react/02-props-with-children">Props with Children</Link></li>
-                <li><Link href="/day1/01-typescript-react/03-ODEV-react-ts-types">Ödev: Component Types</Link></li>
+                <li>Simple Props</li>
+                <li>Props with Children</li>
+                <li>Ödev: Component Types</li>
               </ul>
+              <p className={styles.note}>
+                💡 Bu konuların sayfaları bulunmamaktadır. Notları NOTES.md dosyalarında bulabilirsiniz.
+              </p>
             </div>
 
             <div className={styles.topic}>
-              <h3>React Core Concepts</h3>
-              <p><Link href="/day1/02-react-core">📚 Tüm Konular</Link></p>
+              <h3><Link href="/day1/02-react-core">React Core Concepts</Link></h3>
               <ul>
                 <li><Link href="/day1/02-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
                 <li><Link href="/day1/02-react-core/02-state-and-props">State & Props</Link></li>
@@ -37,8 +36,7 @@ export default function Home() {
             </div>
 
             <div className={styles.topic}>
-              <h3>Hooks Deep Dive</h3>
-              <p><Link href="/day1/03-hooks">📚 Tüm Konular</Link></p>
+              <h3><Link href="/day1/03-hooks">Hooks Deep Dive</Link></h3>
               <ul>
                 <li><Link href="/day1/03-hooks/01-useState-useEffect">useState & useEffect</Link></li>
                 <li><Link href="/day1/03-hooks/02-useReducer">useReducer</Link></li>
@@ -55,11 +53,11 @@ export default function Home() {
 
           <div className={styles.topics}>
             <div className={styles.topic}>
-              <h3>React Router</h3>
+              <h3><Link href="/day2/01-routing">React Router</Link></h3>
               <ul>
-                <li><Link href="/day2/react-router/basic-routing">Basic Routing</Link></li>
-                <li><Link href="/day2/react-router/nested-routes">Nested Routes</Link></li>
-                <li><Link href="/day2/react-router/dynamic-routes">Dynamic Routes</Link></li>
+                <li><Link href="/day2/01-routing/01-react-router-basics">Basic Routing</Link></li>
+                <li><Link href="/day2/01-routing/02-nextjs-router-basics">Nested Routes</Link></li>
+                <li><Link href="/day2/01-routing/03-nested-routes">Dynamic Routes</Link></li>
               </ul>
             </div>
 

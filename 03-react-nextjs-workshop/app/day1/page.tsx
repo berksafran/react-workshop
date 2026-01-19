@@ -52,10 +52,6 @@ export default function Day1Page() {
                     </Link>
                 ))}
             </div>
-
-            <Link href="/" className={styles.backLink}>
-                ← Ana Sayfaya Dön
-            </Link>
         </div>
     );
 }

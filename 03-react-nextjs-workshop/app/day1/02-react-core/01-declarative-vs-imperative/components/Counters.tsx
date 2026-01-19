@@ -25,7 +25,7 @@ export function ImperativeCounter() {
                 </span>
             </div>
             <button onClick={handleClick} className={styles.button}>
-                Artır (Imperative)
+                Artır
             </button>
         </div>
     );
@@ -42,7 +42,7 @@ export function DeclarativeCounter() {
                 <span className={styles.count}>{count}</span>
             </div>
             <button onClick={() => setCount(count + 1)} className={styles.button}>
-                Artır (Declarative)
+                Artır
             </button>
         </div>
     );

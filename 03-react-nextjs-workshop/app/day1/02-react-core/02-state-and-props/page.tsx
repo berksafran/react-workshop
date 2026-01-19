@@ -1,74 +1,36 @@
-'use client';
-
-import Link from 'next/link';
-import styles from './page.module.scss';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { PageContainer } from '@/app/components/PageContainer';
 import { StatePropsDemo } from './components/StatePropsDemo';
+import styles from '../01-declarative-vs-imperative/page.module.scss';
 
-export default function StateAndPropsPage() {
+export default async function StateAndPropsPage() {
+    const notesPath = path.join(process.cwd(), 'app/day1/02-react-core/02-state-and-props/NOTES.md');
+    const notesContent = await fs.readFile(notesPath, 'utf-8');
+
     return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>State & Props</h1>
-                <p>Component state yönetimi ve props ile veri aktarımı</p>
-            </header>
+        <PageContainer
+            title="State & Props"
+            description="Component state yönetimi ve props ile veri aktarımı"
+            notesContent={notesContent}
+        >
+            <section className={styles.section}>
+                <h2>🎯 Canlı Demo</h2>
+                <p className={styles.description}>
+                    State ve Props'un nasıl çalıştığını görmek için aşağıdaki demo'yu inceleyin.
+                </p>
+                <StatePropsDemo />
+            </section>
 
-            <div className={styles.content}>
-                <section className={styles.section}>
-                    <h2>📦 State (Parent Component)</h2>
-                    <p className={styles.description}>
-                        State, component'in kendi içinde tuttuğu değişken verilerdir.
-                        State değiştiğinde component yeniden render edilir.
-                    </p>
-
-                    <div className={styles.code}>
-                        <pre>{`const [name, setName] = useState('Ahmet');
-const [age, setAge] = useState(25);`}</pre>
-                    </div>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>⬇️ Props (Child Component)</h2>
-                    <p className={styles.description}>
-                        Props, parent component'ten child component'e veri aktarımıdır.
-                        Props read-only'dir, child değiştiremez.
-                    </p>
-
-                    <StatePropsDemo />
-
-                    <div className={styles.code}>
-                        <pre>{`<Greeting 
-  name={name} 
-  age={age} 
-  onUpdate={handleUpdateAge}
-/>`}</pre>
-                    </div>
-                </section>
-
-                <section className={styles.highlights}>
-                    <h3>🎯 Önemli Noktalar</h3>
-                    <ul>
-                        <li>
-                            <strong>State:</strong> Component'in kendi verisi, değiştirilebilir
-                        </li>
-                        <li>
-                            <strong>Props:</strong> Parent'tan gelen veri, read-only
-                        </li>
-                        <li>
-                            <strong>Veri Akışı:</strong> Tek yönlü (parent → child)
-                        </li>
-                        <li>
-                            <strong>Callback:</strong> Child, parent'ın state'ini callback ile değiştirebilir
-                        </li>
-                        <li>
-                            State değişince → Component re-render → Props güncellenir
-                        </li>
-                    </ul>
-                </section>
-            </div>
-
-            <Link href="/day1/02-react-core" className={styles.backLink}>
-                ← Geri Dön
-            </Link>
-        </div>
+            <section className={styles.highlights}>
+                <h3>🎯 Önemli Noktalar</h3>
+                <ul>
+                    <li><strong>State:</strong> Component'in kendi verisi, değişince re-render olur</li>
+                    <li><strong>Props:</strong> Parent'tan child'a veri aktarımı, read-only</li>
+                    <li><strong>Tek yönlü veri akışı:</strong> Parent → Child (props ile)</li>
+                    <li><strong>State yukarı taşınabilir:</strong> Lifting state up pattern</li>
+                </ul>
+            </section>
+        </PageContainer>
     );
 }

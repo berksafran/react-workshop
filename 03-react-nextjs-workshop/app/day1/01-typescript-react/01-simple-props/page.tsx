@@ -1,35 +1,54 @@
-/**
- * REACT COMPONENT TİPLERİ - BASIT PROPS
- * Detaylı notlar: NOTES.md
- * 
- * İki yöntem var: FC<> veya direkt props'a tip verme
- * Bu örnekte Yöntem 2 kullanıyoruz (direkt props'a tip verme)
- */
+import { promises as fs } from 'fs';
+import path from 'path';
+import { PageContainer } from '@/app/components/PageContainer';
+import { ButtonDemo } from './components/ButtonDemo';
+import styles from '../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 
-// Basit button component props
-type ButtonProps = {
-    text: string;
-    onClick: () => void;
-    variant?: 'primary' | 'secondary';
-    disabled?: boolean;
-};
+export default async function SimplePropsPage() {
+    const notesPath = path.join(process.cwd(), 'app/day1/01-typescript-react/01-simple-props/NOTES.md');
+    const notesContent = await fs.readFile(notesPath, 'utf-8');
 
-// YÖNTEM 1: React.FC<Props>
-// const Button: React.FC<ButtonProps> = ({ text, onClick, variant, disabled }) => {
-//   return <button onClick={onClick}>{text}</button>;
-// };
-
-// YÖNTEM 2: Direkt props'a tip ver (Bu workshop'ta bunu kullanıyoruz)
-const Button = ({ text, onClick, variant = 'primary', disabled = false }: ButtonProps) => {
     return (
-        <button
-            onClick={onClick}
-            disabled={disabled}
-            className={variant}
+        <PageContainer
+            title="Simple Props"
+            description="React component props typing (FC kullanmadan)"
+            notesContent={notesContent}
         >
-            {text}
-        </button>
-    );
+            <section className={styles.section}>
+                <h2>🎯 Button Component Demo</h2>
+                <p className={styles.description}>
+                    TypeScript ile tip güvenli props kullanımı. FC kullanmadan direkt props'a tip verme.
+                </p>
+
+                <ButtonDemo />
+
+                <div className={styles.code} style={{ marginTop: '2rem' }}>
+                    <pre>{`type ButtonProps = {
+  text: string;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
 };
 
-export default Button;
+const Button = ({ text, onClick, variant = 'primary', disabled = false }: ButtonProps) => {
+  return (
+    <button onClick={onClick} disabled={disabled} className={variant}>
+      {text}
+    </button>
+  );
+};`}</pre>
+                </div>
+            </section>
+
+            <section className={styles.highlights}>
+                <h3>🎯 Önemli Noktalar</h3>
+                <ul>
+                    <li><strong>Type tanımlama:</strong> Props için type veya interface kullan</li>
+                    <li><strong>Optional props:</strong> ? ile işaretle</li>
+                    <li><strong>Default values:</strong> Destructuring sırasında ver</li>
+                    <li><strong>Union types:</strong> 'primary' | 'secondary' gibi</li>
+                </ul>
+            </section>
+        </PageContainer>
+    );
+}

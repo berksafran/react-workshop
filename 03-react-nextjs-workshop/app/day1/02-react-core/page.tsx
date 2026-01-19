@@ -7,7 +7,7 @@ export default function Day1ReactCorePage() {
             id: 1,
             title: 'Declarative vs Imperative',
             description: 'React\'in declarative yaklaşımı ve imperative yaklaşımla farkları',
-            path: '/day1/01-react-core/01-declarative-vs-imperative',
+            path: '/day1/02-react-core/01-declarative-vs-imperative',
             emoji: '🎯'
         },
         {
@@ -53,10 +53,6 @@ export default function Day1ReactCorePage() {
                     </Link>
                 ))}
             </div>
-
-            <Link href="/" className={styles.backLink}>
-                ← Ana Sayfaya Dön
-            </Link>
         </div>
     );
 }

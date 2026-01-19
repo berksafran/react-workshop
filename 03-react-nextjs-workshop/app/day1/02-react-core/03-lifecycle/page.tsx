@@ -1,130 +1,36 @@
-'use client';
-
-import { useState } from 'react';
-import Link from 'next/link';
-import styles from './page.module.scss';
+import path from 'path';
+import { promises as fs } from 'fs';
+import { PageContainer } from '@/app/components/PageContainer';
 import { LifecycleDemo } from './components/LifecycleDemo';
+import styles from '../01-declarative-vs-imperative/page.module.scss';
 
-export default function LifecyclePage() {
-    const [count, setCount] = useState(0);
-    const [isVisible, setIsVisible] = useState(true);
-    const [logs, setLogs] = useState<string[]>([]);
-
-    const addLog = (message: string) => {
-        const timestamp = new Date().toLocaleTimeString();
-        setLogs(prev => [...prev, `[${timestamp}] ${message}`]);
-    };
+export default async function LifecyclePage() {
+    const notesPath = path.join(process.cwd(), 'app/day1/02-react-core/03-lifecycle/NOTES.md');
+    const notesContent = await fs.readFile(notesPath, 'utf-8');
 
     return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>Component Lifecycle</h1>
-                <p>Mount → Update → Unmount</p>
-            </header>
+        <PageContainer
+            title="Component Lifecycle"
+            description="React component yaşam döngüsü - Mount, Update, Unmount"
+            notesContent={notesContent}
+        >
+            <section className={styles.section}>
+                <h2>🔄 Lifecycle Demo</h2>
+                <p className={styles.description}>
+                    Component'in mount, update ve unmount aşamalarını görmek için demo'yu kullanın.
+                </p>
+                <LifecycleDemo count={0} />
+            </section>
 
-            <div className={styles.content}>
-                <section className={styles.section}>
-                    <h2>♻️ Lifecycle Aşamaları</h2>
-
-                    <div className={styles.phases}>
-                        <div className={styles.phase}>
-                            <div className={styles.phaseIcon}>🟢</div>
-                            <h3>Mount</h3>
-                            <p>Component ilk kez DOM'a eklenir</p>
-                            <code>useEffect(() =&gt; { }, [])</code>
-                        </div>
-
-                        <div className={styles.phase}>
-                            <div className={styles.phaseIcon}>🔄</div>
-                            <h3>Update</h3>
-                            <p>State veya props değiştiğinde</p>
-                            <code>useEffect(() =&gt; { }, [dep])</code>
-                        </div>
-
-                        <div className={styles.phase}>
-                            <div className={styles.phaseIcon}>🔴</div>
-                            <h3>Unmount</h3>
-                            <p>Component DOM'dan kaldırılır</p>
-                            <code>return () =&gt; { }</code>
-                        </div>
-                    </div>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>🎮 Interaktif Demo</h2>
-
-                    <div className={styles.controls}>
-                        <button
-                            onClick={() => setIsVisible(!isVisible)}
-                            className={styles.button}
-                        >
-                            {isVisible ? 'Component\'i Kaldır' : 'Component\'i Ekle'}
-                        </button>
-
-                        <button
-                            onClick={() => setCount(count + 1)}
-                            className={styles.button}
-                            disabled={!isVisible}
-                        >
-                            Count Artır
-                        </button>
-
-                        <button
-                            onClick={() => setLogs([])}
-                            className={styles.buttonSecondary}
-                        >
-                            Logları Temizle
-                        </button>
-                    </div>
-
-                    <div className={styles.demo}>
-                        {isVisible && <LifecycleDemo count={count} onLog={addLog} />}
-                    </div>
-
-                    <div className={styles.logs}>
-                        <h3>📋 Lifecycle Logları:</h3>
-                        <div className={styles.logList}>
-                            {logs.length === 0 ? (
-                                <p className={styles.emptyLog}>Henüz log yok. Butonlara tıklayın!</p>
-                            ) : (
-                                logs.map((log, index) => (
-                                    <div key={index} className={styles.logItem}>
-                                        {log}
-                                    </div>
-                                ))
-                            )}
-                        </div>
-                    </div>
-                </section>
-
-                <section className={styles.highlights}>
-                    <h3>🎯 Önemli Noktalar</h3>
-                    <ul>
-                        <li>
-                            <strong>Mount:</strong> Component ilk kez render edilir, useEffect çalışır
-                        </li>
-                        <li>
-                            <strong>Update:</strong> State/props değişince component re-render edilir
-                        </li>
-                        <li>
-                            <strong>Unmount:</strong> Component kaldırılırken cleanup function çalışır
-                        </li>
-                        <li>
-                            <strong>Cleanup:</strong> Timer, subscription gibi kaynakları temizle
-                        </li>
-                        <li>
-                            Dependency array boş [] → Sadece mount/unmount
-                        </li>
-                        <li>
-                            Dependency array [dep] → dep değişince çalışır
-                        </li>
-                    </ul>
-                </section>
-            </div>
-
-            <Link href="/day1/02-react-core" className={styles.backLink}>
-                ← Geri Dön
-            </Link>
-        </div>
+            <section className={styles.highlights}>
+                <h3>🎯 Üç Aşama</h3>
+                <ul>
+                    <li><strong>Mount:</strong> Component ilk kez DOM'a eklenir</li>
+                    <li><strong>Update:</strong> State veya props değişince re-render olur</li>
+                    <li><strong>Unmount:</strong> Component DOM'dan kaldırılır</li>
+                    <li><strong>useEffect:</strong> Her aşamada farklı işlemler yapabilirsin</li>
+                </ul>
+            </section>
+        </PageContainer>
     );
 }

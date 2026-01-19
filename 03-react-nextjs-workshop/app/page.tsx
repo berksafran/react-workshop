@@ -16,9 +16,9 @@ export default function Home() {
             <div className={styles.topic}>
               <h3>TypeScript + React</h3>
               <ul>
-                <li>Simple Props</li>
-                <li>Props with Children</li>
-                <li>Ödev: Component Types</li>
+                <li><Link href="/day1/01-typescript-react/01-simple-props">Simple Props</Link></li>
+                <li><Link href="/day1/01-typescript-react/02-props-with-children">Props with Children</Link></li>
+                <li><Link href="/day1/01-typescript-react/03-ODEV-component-types">Ödev: Component Types</Link></li>
               </ul>
               <p className={styles.note}>
                 💡 Bu konuların sayfaları bulunmamaktadır. Notları NOTES.md dosyalarında bulabilirsiniz.
@@ -31,7 +31,7 @@ export default function Home() {
                 <li><Link href="/day1/02-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
                 <li><Link href="/day1/02-react-core/02-state-and-props">State & Props</Link></li>
                 <li><Link href="/day1/02-react-core/03-lifecycle">Lifecycle</Link></li>
-                <li><Link href="/day1/02-react-core/04-ODEV-counter-app">Counter App (Mini Ödev)</Link></li>
+                <li><Link href="/day1/02-react-core/04-ODEV-counter-app">Ödev: Counter App</Link></li>
               </ul>
             </div>
 

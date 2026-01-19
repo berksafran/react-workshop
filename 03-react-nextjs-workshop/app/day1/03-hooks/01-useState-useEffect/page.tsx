@@ -29,10 +29,6 @@ export default function UseStateUseEffectIndexPage() {
             <div className={styles.content}>
                 <section className={styles.section}>
                     <h2>🎣 Temel Hooks</h2>
-                    <p className={styles.description}>
-                        useState ve useEffect, React'in en çok kullanılan hooks'larıdır.
-                        Her React developer'ın derinlemesine bilmesi gerekir.
-                    </p>
                 </section>
 
                 <div className={styles.grid}>
@@ -48,29 +44,7 @@ export default function UseStateUseEffectIndexPage() {
                         </Link>
                     ))}
                 </div>
-
-                <section className={styles.highlights}>
-                    <h3>🎯 Önemli Noktalar</h3>
-                    <ul>
-                        <li>
-                            <strong>useState:</strong> State değişince component re-render edilir
-                        </li>
-                        <li>
-                            <strong>Functional Updates:</strong> Önceki state'e göre güncelleme için kullan
-                        </li>
-                        <li>
-                            <strong>useEffect Dependency:</strong> Boş [] = mount, [dep] = dep değişince
-                        </li>
-                        <li>
-                            <strong>Cleanup:</strong> Timer, subscription temizlemek için mutlaka kullan
-                        </li>
-                    </ul>
-                </section>
             </div>
-
-            <Link href="/day1/03-hooks" className={styles.backLink}>
-                ← Geri Dön
-            </Link>
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import { Header } from "./components/Header";
 
 export const metadata: Metadata = {
   title: "React & Next.js Workshop",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

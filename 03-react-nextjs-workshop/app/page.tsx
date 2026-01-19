@@ -14,15 +14,12 @@ export default function Home() {
           <h2><Link href="/day1" style={{ color: '#667eea', fontWeight: 'bold' }}>📅 Gün 1 - React Fundamentals</Link></h2>
           <div className={styles.topics}>
             <div className={styles.topic}>
-              <h3>TypeScript + React</h3>
+              <h3><Link href="/day1/01-typescript-react">TypeScript + React</Link></h3>
               <ul>
                 <li><Link href="/day1/01-typescript-react/01-simple-props">Simple Props</Link></li>
                 <li><Link href="/day1/01-typescript-react/02-props-with-children">Props with Children</Link></li>
                 <li><Link href="/day1/01-typescript-react/03-ODEV-component-types">Ödev: Component Types</Link></li>
               </ul>
-              <p className={styles.note}>
-                💡 Bu konuların sayfaları bulunmamaktadır. Notları NOTES.md dosyalarında bulabilirsiniz.
-              </p>
             </div>
 
             <div className={styles.topic}>

@@ -5,7 +5,7 @@ import styles from '../../../day1/02-react-core/page.module.scss';
 
 export default async function NextjsRouterBasicsPage() {
   // Read NOTES.md file
-  const notesPath = path.join(process.cwd(), 'app/day2/01-routing/02-nextjs-router-basics/NOTES.md');
+  const notesPath = path.join(process.cwd(), 'app/day2/02-nextjs-router/01-basics/NOTES.md');
   const notesContent = await fs.readFile(notesPath, 'utf-8');
 
   return (

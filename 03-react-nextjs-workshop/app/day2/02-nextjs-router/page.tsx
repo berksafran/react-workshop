@@ -33,25 +33,19 @@ export default function NextjsRouterPage() {
                 <p>Next.js App Router özellikleri ve kullanımı</p>
             </header>
 
-            <div className={styles.content}>
+            <div className={styles.grid}>
                 {topics.map((topic) => (
                     <Link
                         key={topic.id}
                         href={topic.path}
                         className={styles.card}
-                        style={{ textDecoration: 'none', display: 'block' }}
                     >
-                        <h2>
-                            {topic.emoji} {topic.title}
-                        </h2>
+                        <div className={styles.emoji}>{topic.emoji}</div>
+                        <h2>{topic.title}</h2>
                         <p>{topic.description}</p>
                     </Link>
                 ))}
             </div>
-
-            <Link href="/day2" className={styles.backLink}>
-                ← Day 2 Ana Sayfa
-            </Link>
         </div>
     );
 }

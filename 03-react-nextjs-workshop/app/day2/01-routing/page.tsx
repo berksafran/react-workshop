@@ -36,21 +36,19 @@ export default function RoutingPage() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <h1>⚛️ React Router</h1>
+                <h1>React Router</h1>
                 <p>Client-side routing ile Single Page Application geliştirme</p>
             </header>
 
-            <div className={styles.content}>
+            <div className={styles.grid}>
                 {topics.map((topic) => (
                     <Link
                         key={topic.id}
                         href={topic.path}
                         className={styles.card}
-                        style={{ textDecoration: 'none', display: 'block' }}
                     >
-                        <h2>
-                            {topic.emoji} {topic.title}
-                        </h2>
+                        <div className={styles.emoji}>{topic.emoji}</div>
+                        <h2>{topic.title}</h2>
                         <p>{topic.description}</p>
                     </Link>
                 ))}

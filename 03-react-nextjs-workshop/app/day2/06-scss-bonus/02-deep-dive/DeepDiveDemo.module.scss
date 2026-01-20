@@ -1,0 +1,273 @@
+@use './maps' as *;
+@use './functions' as *;
+
+.deepDiveDemo {
+    padding: spacing(8);
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h1 {
+        color: map-get($theme-colors, primary);
+        font-size: map-get($font-sizes, '3xl');
+        margin-bottom: spacing(6);
+    }
+
+    h2 {
+        color: map-get($theme-colors, secondary);
+        font-size: map-get($font-sizes, '2xl');
+        margin-top: spacing(8);
+        margin-bottom: spacing(4);
+    }
+
+    h3 {
+        color: map-get($theme-colors, dark);
+        font-size: map-get($font-sizes, xl);
+        margin-top: spacing(6);
+        margin-bottom: spacing(3);
+    }
+}
+
+// Functions Example
+.functionsExample {
+    background: white;
+    padding: spacing(6);
+    border-radius: map-get($border-radius, lg);
+    box-shadow: map-get($shadows, md);
+    margin-bottom: spacing(6);
+
+    .functionDemo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: spacing(4);
+        margin-top: spacing(4);
+
+        .demoBox {
+            padding: spacing(4);
+            border-radius: map-get($border-radius, base);
+            text-align: center;
+
+            &.pxToRem {
+                font-size: px-to-rem(24px);
+                background: lighten(map-get($theme-colors, primary), 40%);
+            }
+
+            &.spacing {
+                padding: spacing(6);
+                background: lighten(map-get($theme-colors, secondary), 40%);
+            }
+
+            &.gridWidth {
+                width: grid-width(6);
+                background: lighten(map-get($theme-colors, warning), 30%);
+            }
+        }
+    }
+}
+
+// Loops Example - Generate utility classes
+@each $name, $color in $theme-colors {
+    .bg-#{$name} {
+        background-color: $color;
+        color: color-contrast($color);
+    }
+
+    .text-#{$name} {
+        color: $color;
+    }
+
+    .border-#{$name} {
+        border: 2px solid $color;
+    }
+}
+
+// Generate spacing utilities
+@each $key, $value in $spacing-scale {
+    .m-#{$key} {
+        margin: $value;
+    }
+
+    .mt-#{$key} {
+        margin-top: $value;
+    }
+
+    .mb-#{$key} {
+        margin-bottom: $value;
+    }
+
+    .p-#{$key} {
+        padding: $value;
+    }
+
+    .pt-#{$key} {
+        padding-top: $value;
+    }
+
+    .pb-#{$key} {
+        padding-bottom: $value;
+    }
+}
+
+// Generate grid columns
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: grid-width($i);
+        padding: spacing(2);
+    }
+}
+
+.loopsExample {
+    background: white;
+    padding: spacing(6);
+    border-radius: map-get($border-radius, lg);
+    box-shadow: map-get($shadows, md);
+    margin-bottom: spacing(6);
+
+    .colorGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: spacing(4);
+        margin-top: spacing(4);
+
+        .colorBox {
+            padding: spacing(4);
+            border-radius: map-get($border-radius, base);
+            text-align: center;
+            font-weight: map-get($font-weights, semibold);
+        }
+    }
+
+    .gridDemo {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: spacing(4);
+        gap: spacing(2);
+
+        .gridBox {
+            background: lighten(map-get($theme-colors, info), 35%);
+            border: 2px solid map-get($theme-colors, info);
+            border-radius: map-get($border-radius, sm);
+            padding: spacing(3);
+            text-align: center;
+            font-size: map-get($font-sizes, sm);
+        }
+    }
+}
+
+// Extend Example
+%card-base {
+    background: white;
+    border-radius: map-get($border-radius, lg);
+    box-shadow: map-get($shadows, base);
+    padding: spacing(6);
+    transition: all map-get($transitions, base);
+
+    &:hover {
+        box-shadow: map-get($shadows, lg);
+        transform: translateY(-2px);
+    }
+}
+
+.extendExample {
+    @extend %card-base;
+    margin-bottom: spacing(6);
+
+    .cardVariant {
+        @extend %card-base;
+        margin-top: spacing(4);
+
+        &.primary {
+            border-left: 4px solid map-get($theme-colors, primary);
+        }
+
+        &.secondary {
+            border-left: 4px solid map-get($theme-colors, secondary);
+        }
+
+        &.danger {
+            border-left: 4px solid map-get($theme-colors, danger);
+        }
+    }
+}
+
+// Conditional Mixins
+@mixin theme-variant($theme) {
+    @if $theme =='dark' {
+        background-color: map-get($theme-colors, dark);
+        color: white;
+    }
+
+    @else if $theme =='light' {
+        background-color: map-get($theme-colors, light);
+        color: map-get($theme-colors, dark);
+    }
+
+    @else {
+        background-color: white;
+        color: black;
+    }
+}
+
+.conditionalsExample {
+    @extend %card-base;
+    margin-bottom: spacing(6);
+
+    .themeBoxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: spacing(4);
+        margin-top: spacing(4);
+
+        .themeBox {
+            padding: spacing(4);
+            border-radius: map-get($border-radius, base);
+            text-align: center;
+
+            &.dark {
+                @include theme-variant('dark');
+            }
+
+            &.light {
+                @include theme-variant('light');
+            }
+
+            &.default {
+                @include theme-variant('default');
+            }
+        }
+    }
+}
+
+// Advanced Maps Example
+.mapsExample {
+    @extend %card-base;
+
+    .shadowBoxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: spacing(4);
+        margin-top: spacing(4);
+
+        @each $name, $shadow in $shadows {
+            .shadow-#{$name} {
+                background: white;
+                padding: spacing(4);
+                border-radius: map-get($border-radius, base);
+                box-shadow: $shadow;
+                text-align: center;
+                font-size: map-get($font-sizes, sm);
+            }
+        }
+    }
+}
+
+// Code block styling
+.codeBlock {
+    background: #f8f9fa;
+    padding: spacing(4);
+    border-radius: map-get($border-radius, base);
+    overflow-x: auto;
+    margin-top: spacing(4);
+    font-family: 'Courier New', monospace;
+    font-size: map-get($font-sizes, sm);
+    line-height: 1.6;
+}

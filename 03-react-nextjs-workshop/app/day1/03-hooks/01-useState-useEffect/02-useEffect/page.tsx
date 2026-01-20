@@ -1,19 +1,22 @@
-'use client';
-
-import Link from 'next/link';
+import { PageContainer } from '@/app/components/PageContainer';
 import { EffectBasicDemo } from './components/EffectBasicDemo';
 import { EffectCleanupDemo } from './components/EffectCleanupDemo';
 import { EffectFetchDemo } from './components/EffectFetchDemo';
 import styles from '../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 export default function UseEffectPage() {
-    return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>useEffect Hook</h1>
-                <p>Side effects ve lifecycle yönetimi</p>
-            </header>
+    // Read notes content at build time
+    const notesPath = join(process.cwd(), 'app/day1/03-hooks/01-useState-useEffect/NOTES.md');
+    const notesContent = readFileSync(notesPath, 'utf-8');
 
+    return (
+        <PageContainer
+            title="useEffect Hook"
+            description="Side effects ve lifecycle yönetimi"
+            notesContent={notesContent}
+        >
             <div className={styles.content}>
                 <section className={styles.section}>
                     <h2>⚡ useEffect Nedir?</h2>
@@ -81,10 +84,6 @@ useEffect(() => { ... }, [count]);`}</pre>
                     </ul>
                 </section>
             </div>
-
-            <Link href="/day1/03-hooks/01-useState-useEffect" className={styles.backLink}>
-                ← Geri Dön
-            </Link>
-        </div>
+        </PageContainer>
     );
 }

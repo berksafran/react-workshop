@@ -1,0 +1,184 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.basicsDemo {
+    padding: $spacing-xl;
+    font-family: $font-family-base;
+
+    h1 {
+        color: $primary-color;
+        margin-bottom: $spacing-lg;
+    }
+
+    h2 {
+        color: $secondary-color;
+        margin-top: $spacing-xl;
+        margin-bottom: $spacing-md;
+    }
+}
+
+// Variables Example
+.variablesExample {
+    @include card;
+    margin-bottom: $spacing-lg;
+
+    .colorPalette {
+        @include flex-between;
+        gap: $spacing-md;
+        margin-top: $spacing-md;
+
+        .colorBox {
+            @include flex-center;
+            @include flex-column;
+            width: 100px;
+            height: 100px;
+            border-radius: $border-radius;
+            color: white;
+            font-size: $font-size-small;
+            font-weight: bold;
+
+            &.primary {
+                background-color: $primary-color;
+            }
+
+            &.secondary {
+                background-color: $secondary-color;
+            }
+
+            &.danger {
+                background-color: $danger-color;
+            }
+
+            &.warning {
+                background-color: $warning-color;
+            }
+        }
+    }
+}
+
+// Nesting Example
+.nestingExample {
+    @include card;
+    margin-bottom: $spacing-lg;
+
+    .parentElement {
+        padding: $spacing-md;
+        background-color: #f8f9fa;
+        border-radius: $border-radius;
+
+        .childElement {
+            padding: $spacing-sm;
+            background-color: white;
+            margin-top: $spacing-sm;
+            border-left: 3px solid $primary-color;
+
+            .grandchildElement {
+                padding: $spacing-xs;
+                color: $secondary-color;
+                font-size: $font-size-small;
+            }
+        }
+
+        // Parent selector usage
+        &:hover {
+            background-color: #e9ecef;
+        }
+
+        &--highlighted {
+            border: 2px solid $warning-color;
+        }
+    }
+}
+
+// Mixins Example
+.mixinsExample {
+    @include card;
+    margin-bottom: $spacing-lg;
+
+    .buttonGroup {
+        @include flex-between;
+        gap: $spacing-md;
+        margin-top: $spacing-md;
+
+        .primaryButton {
+            @include button-style($primary-color, white);
+        }
+
+        .secondaryButton {
+            @include button-style($secondary-color, white);
+        }
+
+        .dangerButton {
+            @include button-style($danger-color, white);
+        }
+    }
+}
+
+// Parent Selector Example
+.parentSelectorExample {
+    @include card;
+    margin-bottom: $spacing-lg;
+
+    .bemExample {
+        padding: $spacing-md;
+
+        // Block
+        &__header {
+            font-size: $font-size-large;
+            font-weight: bold;
+            margin-bottom: $spacing-sm;
+        }
+
+        &__body {
+            font-size: $font-size-base;
+            line-height: 1.6;
+        }
+
+        // Modifier
+        &--featured {
+            border: 2px solid $primary-color;
+            background-color: rgba($primary-color, 0.05);
+        }
+
+        // Pseudo-classes
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+// Responsive Example
+.responsiveExample {
+    @include card;
+
+    .responsiveBox {
+        padding: $spacing-md;
+        background-color: $primary-color;
+        color: white;
+        text-align: center;
+
+        @include respond-to(mobile) {
+            background-color: $danger-color;
+
+            &::after {
+                content: ' (Mobile)';
+            }
+        }
+
+        @include respond-to(tablet) {
+            background-color: $warning-color;
+
+            &::after {
+                content: ' (Tablet)';
+            }
+        }
+
+        @include respond-to(desktop) {
+            background-color: $secondary-color;
+
+            &::after {
+                content: ' (Desktop)';
+            }
+        }
+    }
+}

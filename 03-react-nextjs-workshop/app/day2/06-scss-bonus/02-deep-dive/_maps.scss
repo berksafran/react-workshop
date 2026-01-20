@@ -1,0 +1,97 @@
+// Theme colors map
+$theme-colors: (
+    primary: #3498db,
+    secondary: #2ecc71,
+    success: #27ae60,
+    danger: #e74c3c,
+    warning: #f39c12,
+    info: #3498db,
+    light: #ecf0f1,
+    dark: #2c3e50
+);
+
+// Spacing scale map
+$spacing-scale: (
+    0: 0,
+    1: 4px,
+    2: 8px,
+    3: 12px,
+    4: 16px,
+    5: 20px,
+    6: 24px,
+    8: 32px,
+    10: 40px,
+    12: 48px,
+    16: 64px
+);
+
+// Breakpoints map
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+// Font sizes map
+$font-sizes: (
+    xs: 12px,
+    sm: 14px,
+    base: 16px,
+    lg: 18px,
+    xl: 20px,
+    '2xl': 24px,
+    '3xl': 30px,
+    '4xl': 36px
+);
+
+// Font weights map
+$font-weights: (
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800
+);
+
+// Border radius map
+$border-radius: (
+    none: 0,
+    sm: 4px,
+    base: 8px,
+    md: 12px,
+    lg: 16px,
+    xl: 24px,
+    full: 9999px
+);
+
+// Shadows map
+$shadows: (
+    sm: 0 1px 2px rgba(0, 0, 0, 0.05),
+    base: 0 2px 4px rgba(0, 0, 0, 0.1),
+    md: 0 4px 8px rgba(0, 0, 0, 0.12),
+    lg: 0 8px 16px rgba(0, 0, 0, 0.15),
+    xl: 0 12px 24px rgba(0, 0, 0, 0.18),
+    '2xl': 0 24px 48px rgba(0, 0, 0, 0.22)
+);
+
+// Z-index layers map
+$z-layers: (
+    dropdown: 1000,
+    sticky: 1020,
+    fixed: 1030,
+    modal-backdrop: 1040,
+    modal: 1050,
+    popover: 1060,
+    tooltip: 1070
+);
+
+// Transition durations map
+$transitions: (
+    fast: 150ms,
+    base: 300ms,
+    slow: 500ms
+);

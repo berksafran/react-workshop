@@ -1,0 +1,75 @@
+// Advanced SCSS Functions
+
+// Convert px to rem
+@function px-to-rem($px, $base: 16px) {
+    @return $px / $base * 1rem;
+}
+
+// Calculate spacing
+@function spacing($multiplier) {
+    @return 8px * $multiplier;
+}
+
+// Lighten/Darken with validation
+@function adjust-color-brightness($color, $amount, $direction: 'lighten') {
+    @if $direction =='lighten' {
+        @return lighten($color, $amount);
+    }
+
+    @else {
+        @return darken($color, $amount);
+    }
+}
+
+// Grid width calculator
+@function grid-width($columns, $total-columns: 12, $gutter: 0) {
+    $width: percentage($columns / $total-columns);
+
+    @if $gutter >0 {
+        @return calc(#{$width} - #{$gutter});
+    }
+
+    @return $width;
+}
+
+// Z-index management
+@function z-index($layer) {
+    $z-layers: (
+        modal: 1000,
+        dropdown: 900,
+        header: 800,
+        overlay: 700,
+        default: 1
+    );
+
+@return map-get($z-layers, $layer);
+}
+
+// Color contrast calculator
+@function color-contrast($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $yiq: (
+        ($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if $yiq >=128 {
+        @return #000;
+    }
+
+    @else {
+        @return #fff;
+    }
+}
+
+// Strip unit from value
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1
+);
+}
+
+// Clamp value between min and max
+@function clamp-value($value, $min, $max) {
+    @return max($min, min($value, $max));
+}

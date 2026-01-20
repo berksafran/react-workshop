@@ -7,7 +7,7 @@ import { MarkdownViewer } from '../../components/MarkdownViewer';
 
 export default async function MiniProjectPage() {
     // Requirements dosyasını okuyalım
-    const filePath = path.join(process.cwd(), 'app/day2/05-mini-project/REQUIREMENTS.md');
+    const filePath = path.join(process.cwd(), 'app/day2/05-mini-project/NOTES.md');
     const content = fs.readFileSync(filePath, 'utf-8');
 
     return (

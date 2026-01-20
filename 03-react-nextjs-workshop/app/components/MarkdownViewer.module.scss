@@ -72,7 +72,8 @@
         }
     }
 
-    code {
+    /* Inline code only - excludes code inside pre */
+    *:not(pre)>code {
         background: #f4f4f4;
         padding: 0.2rem 0.4rem;
         border-radius: 4px;
@@ -82,17 +83,15 @@
     }
 
     pre {
-        background: #2d2d2d;
         border-radius: 8px;
-        padding: 1.5rem;
-        overflow-x: auto;
         margin-bottom: 1.5rem;
+        overflow-x: auto;
+        /* Background handled by highlight.js theme */
+        background: transparent;
 
         code {
-            background: transparent;
-            padding: 0;
-            color: #f8f8f2;
             font-size: 0.95rem;
+            font-family: 'Monaco', 'Courier New', monospace;
         }
     }
 

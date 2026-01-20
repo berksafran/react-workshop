@@ -1,19 +1,22 @@
-'use client';
-
-import Link from 'next/link';
+import { PageContainer } from '@/app/components/PageContainer';
 import { StateBasicDemo } from './components/StateBasicDemo';
 import { StateFunctionalDemo } from './components/StateFunctionalDemo';
 import { StateLazyDemo } from './components/StateLazyDemo';
 import styles from '../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 export default function UseStatePage() {
-    return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>useState Hook</h1>
-                <p>Component state yönetimi</p>
-            </header>
+    // Read notes content at build time
+    const notesPath = join(process.cwd(), 'app/day1/03-hooks/01-useState-useEffect/NOTES.md');
+    const notesContent = readFileSync(notesPath, 'utf-8');
 
+    return (
+        <PageContainer
+            title="useState Hook"
+            description="Component state yönetimi"
+            notesContent={notesContent}
+        >
             <div className={styles.content}>
                 <section className={styles.section}>
                     <h2>📦 useState Nedir?</h2>
@@ -71,6 +74,6 @@ setState(prev => prev + 1);`}</pre>
                     </ul>
                 </section>
             </div>
-        </div>
+        </PageContainer>
     );
 }

@@ -14,14 +14,14 @@ export default function NextjsRouterPage() {
             id: 2,
             title: 'Comparison',
             description: 'React Router vs Next.js Router karşılaştırması',
-            path: '/day2/02-nextjs-router/comparison',
+            path: '/day2/02-nextjs-router/02-comparison',
             emoji: '⚖️'
         },
         {
             id: 3,
             title: 'API Routes',
             description: 'Next.js API Routes kullanımı',
-            path: '/day2/02-nextjs-router/api-routes',
+            path: '/day2/02-nextjs-router/03-api-routes',
             emoji: '🔌'
         }
     ];

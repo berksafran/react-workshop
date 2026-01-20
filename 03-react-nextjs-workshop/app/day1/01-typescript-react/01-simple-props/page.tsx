@@ -11,7 +11,7 @@ export default async function SimplePropsPage() {
     return (
         <PageContainer
             title="Simple Props"
-            description="React component props typing (FC kullanmadan)"
+            description="React component props typing"
             notesContent={notesContent}
         >
             <section className={styles.section}>

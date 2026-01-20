@@ -30,13 +30,6 @@ export default function RenderingPatternsPage() {
             description: 'Hibrit model ve revalidation',
             path: '/day2/04-rendering/04-isr',
             emoji: '⏱️'
-        },
-        {
-            id: 5,
-            title: 'Next.js 15 vs 16',
-            description: 'Caching, Turbopack & React Compiler',
-            path: '/day2/04-rendering/05-nextjs15-vs-16',
-            emoji: '🆚'
         }
     ];
 

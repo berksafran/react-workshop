@@ -85,7 +85,6 @@ export default function Home() {
                 <li><Link href="/day2/04-rendering/02-csr">CSR (Client Side Rendering)</Link></li>
                 <li><Link href="/day2/04-rendering/03-ssg">SSG (Static Site Generation)</Link></li>
                 <li><Link href="/day2/04-rendering/04-isr">ISR (Incremental Static Regeneration)</Link></li>
-                <li><Link href="/day2/04-rendering/05-nextjs15-vs-16">Next.js 15 vs 16 Karşılaştırması</Link></li>
               </ul>
             </div>
 
@@ -101,6 +100,13 @@ export default function Home() {
               <ul>
                 <li><Link href="/day2/06-scss-bonus/01-basics">SCSS Basics</Link></li>
                 <li><Link href="/day2/06-scss-bonus/02-deep-dive">SCSS Deep Dive</Link></li>
+              </ul>
+            </div>
+
+            <div className={styles.topic}>
+              <h3>🚀 BONUS: Next.js 15 vs 16</h3>
+              <ul>
+                <li><Link href="/day2/07-nextjs15-vs-16-bonus">Next.js 15 vs 16 Karşılaştırması</Link></li>
               </ul>
             </div>
           </div>

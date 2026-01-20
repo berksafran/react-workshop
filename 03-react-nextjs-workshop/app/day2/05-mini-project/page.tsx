@@ -1,7 +1,9 @@
-import styles from '../../day1/02-react-core/page.module.scss';
-import Markdown from 'react-markdown';
+import styles from './page.module.scss';
 import fs from 'fs';
 import path from 'path';
+import Link from 'next/link';
+import { PageContainer } from '../../components/PageContainer';
+import { MarkdownViewer } from '../../components/MarkdownViewer';
 
 export default async function MiniProjectPage() {
     // Requirements dosyasını okuyalım
@@ -9,13 +11,20 @@ export default async function MiniProjectPage() {
     const content = fs.readFileSync(filePath, 'utf-8');
 
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                {/* Markdown içeriğini render edelim */}
-                <div style={{ backgroundColor: '#fff', color: '#333', padding: '2rem', borderRadius: '8px', lineHeight: '1.6' }}>
-                    <Markdown>{content}</Markdown>
-                </div>
+        <PageContainer
+            title="Mini Proje: Kullanıcı Rehberi"
+            description="Rendering Patterns, Routing ve State Management pratiği"
+        >
+            <MarkdownViewer content={content} />
+
+            <div className={styles.ctas}>
+                <Link href="/day2" className={`${styles.button} ${styles.secondary}`}>
+                    ← Geri Dön
+                </Link>
+                <Link href="/day2/05-mini-project/users" className={`${styles.button} ${styles.primary}`}>
+                    Önizlemeyi Başlat →
+                </Link>
             </div>
-        </div>
+        </PageContainer>
     );
 }

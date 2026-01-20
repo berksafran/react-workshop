@@ -95,7 +95,7 @@ export default function Home() {
             <div className={styles.topic}>
               <h3>Mini Project</h3>
               <ul>
-                <li><Link href="/day2/mini-project/user-directory">User Directory (SSR + CSR + Context)</Link></li>
+                <li><Link href="/day2/05-mini-project">User Directory (SSR + CSR + Context)</Link></li>
               </ul>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { PageContainer } from '@/app/components/PageContainer';
-import styles from '../../../../day1/02-react-core/page.module.scss'; // Ortak stilleri kullanabiliriz
+import styles from '../../../day1/02-react-core/page.module.scss'; // Ortak stilleri kullanabiliriz
 
 // Veri çekme simülasyonu (Server-side)
 async function getDynamicData() {

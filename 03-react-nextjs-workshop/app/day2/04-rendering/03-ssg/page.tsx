@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { PageContainer } from '@/app/components/PageContainer';
-import styles from '../../../../day1/02-react-core/page.module.scss';
+import styles from '../../../day1/02-react-core/page.module.scss';
 
 // Statik veri çekme (Default behavior)
 async function getStaticData() {

@@ -1,7 +1,8 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { PageContainer } from '@/app/components/PageContainer';
-import { CallbackDemo, MemoDemo, WhenNotToUseDemo } from './components/PerformanceDemo';
+import { CallbackDemo, UseMemoDemo, WhenNotToUseDemo } from './components/PerformanceDemo';
+import { MemoDemo } from './components/MemoDemo';
 import styles from '../../02-react-core/01-declarative-vs-imperative/page.module.scss';
 
 export default async function MemoizationPage() {
@@ -27,7 +28,7 @@ export default async function MemoizationPage() {
                 <p className={styles.description}>
                     Pahalı hesaplamaları memoize eder. Sadece dependency değişince yeniden hesaplar.
                 </p>
-                <MemoDemo />
+                <UseMemoDemo />
             </section>
 
             <section className={styles.section}>
@@ -35,17 +36,7 @@ export default async function MemoizationPage() {
                 <p className={styles.description}>
                     Component'i memoize eder. Props değişmedikçe re-render olmaz.
                 </p>
-                <div className={styles.code}>
-                    <pre>{`const MemoizedChild = memo(({ data, onClick }) => {
-  return <div onClick={onClick}>{data}</div>;
-});
-
-const handleClick = useCallback(() => {
-  console.log('clicked');
-}, []);
-
-<MemoizedChild data="test" onClick={handleClick} />`}</pre>
-                </div>
+                <MemoDemo />
             </section>
 
             <section className={styles.section}>

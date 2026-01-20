@@ -74,8 +74,7 @@ export default function Home() {
               <ul>
                 <li><Link href="/day2/03-state-management/01-context-api">Context API</Link></li>
                 <li><Link href="/day2/03-state-management/02-context-with-reducer">Context + Reducer</Link></li>
-                <li><Link href="/day2/03-state-management/03-todo-app">To-Do App (HMW)</Link></li>
-                <li><Link href="/day2/03-state-management/04-react-memo">React.memo</Link></li>
+                <li><Link href="/day2/03-state-management/03-todo-app">Örnek: To-Do App</Link></li>
               </ul>
             </div>
 
@@ -105,7 +104,6 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <p>Workshop Materyalleri - 2026</p>
-        <p>JavaScript & TypeScript temelleri için <code>01-javascript-fundamentals</code> ve <code>02-typescript-fundamentals</code> klasörlerine bakın</p>
       </footer>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { memo, useRef } from "react";
 import styles from "./memo.module.scss";
-import { heavyCalculation } from "./utils";
+import { heavyCalculation } from "./memoUtils";
 
 interface ListProps {
     items: string[];

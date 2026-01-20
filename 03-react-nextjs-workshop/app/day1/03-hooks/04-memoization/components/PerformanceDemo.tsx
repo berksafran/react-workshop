@@ -50,7 +50,7 @@ const MemoizedButton = memo(({ onClick, label }: { onClick: () => void, label: s
 MemoizedButton.displayName = 'MemoizedButton';
 
 // 2. useMemo Demo
-export function MemoDemo() {
+export function UseMemoDemo() {
     const [number, setNumber] = useState(0);
     const [dark, setDark] = useState(false);
 

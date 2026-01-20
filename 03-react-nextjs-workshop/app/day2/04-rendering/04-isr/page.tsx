@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { PageContainer } from '@/app/components/PageContainer';
-import styles from '../../../../day1/02-react-core/page.module.scss';
+import styles from '../../../day1/02-react-core/page.module.scss';
 
 // 10 Saniyede bir revalidate et (ISR)
 export const revalidate = 10;

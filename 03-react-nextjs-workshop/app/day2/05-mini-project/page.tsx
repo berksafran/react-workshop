@@ -21,8 +21,8 @@ export default async function MiniProjectPage() {
                 <Link href="/day2" className={`${styles.button} ${styles.secondary}`}>
                     ← Geri Dön
                 </Link>
-                <Link href="/day2/05-mini-project/users" className={`${styles.button} ${styles.primary}`}>
-                    Önizlemeyi Başlat →
+                <Link href="/day2/05-mini-project/solution" className={`${styles.button} ${styles.primary}`}>
+                    ✅ Çözümü Gör
                 </Link>
             </div>
         </PageContainer>

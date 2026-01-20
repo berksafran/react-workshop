@@ -43,15 +43,13 @@ Aşağıdaki özellikleri içeren bir "Kullanıcı Rehberi" uygulaması gelişti
   - Responsive (mobil uyumlu) bir ızgara (grid) yapısı kurun.
 - Global `styles/globals.scss` içindeki değişkenleri veya mixin'leri kullanmaya çalışın.
 
-### 5. Kullanıcı Gönderileri (Parallel Data Fetching & Suspense)
+### 5. Kullanıcı Albümleri (Parallel Data Fetching)
 
-- **Teknoloji:** Server Components & Promise.all / Suspense
-- **Veri Kaynağı:** `https://jsonplaceholder.typicode.com/users/[id]/posts`
+- **Teknoloji:** Client Components & Promise.all
+- **Veri Kaynağı:** `https://jsonplaceholder.typicode.com/albums?userId=[id]`
 - **Beklenen Davranış:**
-  - Kullanıcı detay sayfasının altında, o kullanıcıya ait gönderileri (postları) listeleyin.
-  - Kullanıcı detayı ve gönderileri için yapılan API isteklerini **paralel** olarak (aynı anda) başlatın.
-  - "Request Waterfall" (bir isteğin bitmesini bekleyip diğerini başlatma) hatasına düşmemeye çalışın.
-  - Gönderiler yüklenirken `<Suspense>` kullanarak bir yükleniyor (skeleton) durumu gösterin.
+  - Kullanıcı detay sayfasında, o kullanıcıya ait albümleri listeleyin.
+  - Kullanıcı detayı ve albümleri için yapılan API isteklerini yapın.
 
 ## 💡 İpuçları & Hatırlatmalar
 

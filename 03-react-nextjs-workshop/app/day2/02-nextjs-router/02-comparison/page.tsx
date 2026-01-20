@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { PageContainer } from '@/app/components/PageContainer';
-import styles from '../../../day1/02-react-core/page.module.scss';
+import styles from './comparison.module.scss';
 
 export default async function ComparisonPage() {
     // Read NOTES.md file
@@ -14,34 +14,35 @@ export default async function ComparisonPage() {
             description="İki routing çözümünün detaylı karşılaştırması"
             notesContent={notesContent}
         >
-            <section className={styles.section}>
-                <h2>🎯 Özet</h2>
-                <div className={styles.highlights}>
-                    <div>
-                        <h3>React Router</h3>
-                        <ul>
-                            <li>Code-based routing</li>
-                            <li>Client-side rendering odaklı</li>
-                            <li>Maksimum esneklik</li>
-                            <li>Pure SPA'lar için ideal</li>
-                        </ul>
+            <div className={styles.comparisonPage}>
+                <section>
+                    <h2>🎯 Özet</h2>
+                    <div className={styles.summarySection}>
+                        <div className={styles.comparisonCard}>
+                            <h3>React Router</h3>
+                            <ul>
+                                <li>Code-based routing</li>
+                                <li>Client-side rendering odaklı</li>
+                                <li>Maksimum esneklik</li>
+                                <li>Pure SPA'lar için ideal</li>
+                            </ul>
+                        </div>
+                        <div className={styles.comparisonCard}>
+                            <h3>Next.js Router</h3>
+                            <ul>
+                                <li>File-based routing</li>
+                                <li>SSR/SSG built-in</li>
+                                <li>Convention over configuration</li>
+                                <li>Full-stack uygulamalar için ideal</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Next.js Router</h3>
-                        <ul>
-                            <li>File-based routing</li>
-                            <li>SSR/SSG built-in</li>
-                            <li>Convention over configuration</li>
-                            <li>Full-stack uygulamalar için ideal</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <section className={styles.section}>
-                <h2>📊 Karar Matrisi</h2>
-                <div className={styles.code}>
-                    <pre>{`Proje Gereksinimleri:
+                <section>
+                    <h2>📊 Karar Matrisi</h2>
+                    <div className={styles.decisionMatrix}>
+                        <pre>{`Proje Gereksinimleri:
                     
 1. SEO kritik mi?
    → Evet: Next.js Router ✅
@@ -62,27 +63,32 @@ export default async function ComparisonPage() {
 5. Hızlı prototipleme mi?
    → Evet: Next.js Router ✅
    → Hayır: Her ikisi de ✓`}</pre>
-                </div>
-            </section>
+                    </div>
+                </section>
 
-            <section className={styles.section}>
-                <h2>💡 Gerçek Dünya Örnekleri</h2>
+                <section className={styles.examplesSection}>
+                    <h2>💡 Gerçek Dünya Örnekleri</h2>
 
-                <h3>React Router Kullanan Projeler:</h3>
-                <ul>
-                    <li><strong>Admin Panelleri</strong> - Tamamen client-side, SEO gereksiz</li>
-                    <li><strong>Dashboard Uygulamaları</strong> - Karmaşık client-side routing</li>
-                    <li><strong>Internal Tools</strong> - Sadece authenticated kullanıcılar</li>
-                </ul>
+                    <div className={styles.reactRouterExamples}>
+                        <h3>React Router Kullanan Projeler:</h3>
+                        <ul>
+                            <li><strong>Admin Panelleri</strong> - Tamamen client-side, SEO gereksiz</li>
+                            <li><strong>Dashboard Uygulamaları</strong> - Karmaşık client-side routing</li>
+                            <li><strong>Internal Tools</strong> - Sadece authenticated kullanıcılar</li>
+                        </ul>
+                    </div>
 
-                <h3>Next.js Router Kullanan Projeler:</h3>
-                <ul>
-                    <li><strong>E-ticaret Siteleri</strong> - SEO kritik, ürün sayfaları SSG</li>
-                    <li><strong>Blog/İçerik Siteleri</strong> - Static generation, SEO</li>
-                    <li><strong>Marketing Siteleri</strong> - Landing pages, SEO optimizasyonu</li>
-                    <li><strong>SaaS Uygulamaları</strong> - Hem public hem authenticated sayfalar</li>
-                </ul>
-            </section>
+                    <div className={styles.nextjsExamples}>
+                        <h3>Next.js Router Kullanan Projeler:</h3>
+                        <ul>
+                            <li><strong>E-ticaret Siteleri</strong> - SEO kritik, ürün sayfaları SSG</li>
+                            <li><strong>Blog/İçerik Siteleri</strong> - Static generation, SEO</li>
+                            <li><strong>Marketing Siteleri</strong> - Landing pages, SEO optimizasyonu</li>
+                            <li><strong>SaaS Uygulamaları</strong> - Hem public hem authenticated sayfalar</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </PageContainer>
     );
 }

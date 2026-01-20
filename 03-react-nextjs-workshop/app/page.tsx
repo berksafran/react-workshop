@@ -63,8 +63,8 @@ export default function Home() {
               <h3><Link href="/day2/02-nextjs-router">Next.js Router</Link></h3>
               <ul>
                 <li><Link href="/day2/02-nextjs-router/01-basics">Next.js Router Basics</Link></li>
-                <li><Link href="/day2/02-nextjs-router/comparison">React Router vs Next.js</Link></li>
-                <li><Link href="/day2/02-nextjs-router/api-routes">API Routes</Link></li>
+                <li><Link href="/day2/02-nextjs-router/02-comparison">React Router vs Next.js</Link></li>
+                <li><Link href="/day2/02-nextjs-router/03-api-routes">API Routes</Link></li>
               </ul>
             </div>
 

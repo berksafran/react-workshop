@@ -89,7 +89,7 @@ export default function Home() {
             </div>
 
             <div className={styles.topic}>
-              <h3>Mini Project</h3>
+              <h3>Ödev: Mini Project</h3>
               <ul>
                 <li><Link href="/day2/05-mini-project">User Directory (SSR + CSR + Context)</Link></li>
               </ul>
@@ -115,6 +115,8 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <p>Workshop Materyalleri - 2026</p>
+        <p>Berk Safranbolulu</p>
+        <p>berksafranbolulu@gmail.com</p>
       </footer>
     </div>
   );

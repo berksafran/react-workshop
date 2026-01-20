@@ -9,8 +9,6 @@ help:
 	@echo ""
 	@echo "  make check     - Check if all required tools are installed"
 	@echo "  make install   - Install project dependencies"
-	@echo "  make dev       - Start development server"
-	@echo "  make build     - Build production bundle"
 	@echo "  make clean     - Clean node_modules and build artifacts"
 	@echo ""
 
@@ -27,7 +25,6 @@ check:
 	@echo ""
 	@echo "Next steps:"
 	@echo "  1. Run 'make install' to install dependencies"
-	@echo "  2. Run 'make dev' to start the development server"
 
 # Install dependencies
 install:
@@ -35,16 +32,6 @@ install:
 	npm install
 	@echo ""
 	@echo "✅ Dependencies installed successfully!"
-
-# Start development server
-dev:
-	@echo "Starting development server..."
-	npm run dev
-
-# Build for production
-build:
-	@echo "Building for production..."
-	npm run build
 
 # Clean build artifacts
 clean:

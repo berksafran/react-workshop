@@ -1,36 +1,193 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React & Next.js Workshop 🚀
 
-## Getting Started
+2 günlük pratik odaklı React ve Next.js eğitim materyalleri. Bu workshop, modern web geliştirme için gerekli temel ve ileri seviye konuları kapsamaktadır.
 
-First, run the development server:
+## 📋 İçindekiler
+
+- [Gereksinimler](#gereksinimler)
+- [Kurulum](#kurulum)
+- [Workshop İçeriği](#workshop-içeriği)
+  - [Gün 1 - React Fundamentals](#gün-1---react-fundamentals)
+  - [Gün 2 - Routing & State Management](#gün-2---routing--state-management)
+- [Kullanım](#kullanım)
+- [Proje Yapısı](#proje-yapısı)
+- [Teknolojiler](#teknolojiler)
+
+## 🔧 Gereksinimler
+
+Bu projeyi çalıştırmak için aşağıdaki araçların sisteminizde yüklü olması gerekmektedir:
+
+- **Node.js** 18.0.0 veya üzeri
+- **npm** 9.0.0 veya üzeri
+
+### Gereksinimler Kontrolü
+
+Tüm gereksinimlerin yüklü olup olmadığını kontrol etmek için:
+
+```bash
+make check
+```
+
+## 🚀 Kurulum
+
+1. **Bağımlılıkları yükleyin:**
+
+```bash
+npm install
+```
+
+2. **Development sunucusunu başlatın:**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Tarayıcınızda açın:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📚 Workshop İçeriği
 
-## Learn More
+### Gün 1 - React Fundamentals
 
-To learn more about Next.js, take a look at the following resources:
+#### 1. TypeScript + React
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Simple Props
+- Props with Children
+- **Ödev:** Component Types
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### 2. React Core Concepts
 
-## Deploy on Vercel
+- Declarative vs Imperative Programming
+- State & Props
+- Component Lifecycle
+- **Ödev:** Counter App
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 3. Hooks Deep Dive
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `useState` & `useEffect`
+- `useReducer` (Redux alternatifi)
+- Custom Hooks (`useFetch`, `useLocalStorage`)
+- Memoization (`useCallback`, `useMemo`, `React.memo`)
+- React Compiler (Next.js 16 özelliği)
+
+### Gün 2 - Routing & State Management
+
+#### 1. React Router
+
+- Basic Routing
+- Nested Routes
+- Dynamic Routes
+- Profile Page (Nested + Dynamic)
+
+#### 2. Next.js Router
+
+- Next.js App Router Basics
+- React Router vs Next.js Karşılaştırması
+- API Routes
+- Middleware (Proxy)
+
+#### 3. State Management
+
+- Context API
+- Context + useReducer
+- **Örnek Proje:** To-Do App
+
+#### 4. Rendering Patterns
+
+- SSR (Server Side Rendering)
+- CSR (Client Side Rendering)
+- SSG (Static Site Generation)
+- ISR (Incremental Static Regeneration)
+
+#### 5. Mini Project
+
+- User Directory
+- SSR ile kullanıcı listesi
+- CSR ile detay sayfası
+- Context API ile favoriler yönetimi
+
+#### 6. 🎨 BONUS: SCSS
+
+- SCSS Basics (Variables, Nesting, Mixins)
+- SCSS Deep Dive (Functions, Loops, Maps, Extends)
+
+#### 7. 🎨 BONUS: Next.js Versionları
+
+- Next.js 15 vs 16 Karşılaştırması
+
+## 💻 Kullanım
+
+### Development Sunucusu
+
+```bash
+npm run dev
+```
+
+Sunucu `http://localhost:3000` adresinde çalışacaktır.
+
+### Production Build
+
+```bash
+npm run build
+npm start
+```
+
+### Temizlik
+
+Build dosyalarını ve node_modules'ü temizlemek için:
+
+```bash
+make clean
+```
+
+## 🛠 Teknolojiler
+
+Bu workshop aşağıdaki teknolojileri kullanmaktadır:
+
+- **[Next.js 16](https://nextjs.org/)** - React framework
+- **[React 19](https://react.dev/)** - UI library
+- **[TypeScript](https://www.typescriptlang.org/)** - Type safety
+- **[SCSS](https://sass-lang.com/)** - CSS preprocessor
+- **[React Router](https://reactrouter.com/)** - Client-side routing
+- **[React Markdown](https://github.com/remarkjs/react-markdown)** - Markdown rendering
+
+## 📖 Öğrenme Yolu
+
+1. **Başlangıç:** Ana sayfadan (`/`) başlayın
+2. **Sıralı İlerleme:** Gün 1'den başlayarak sırayla ilerleyin
+3. **Pratik Yapın:** Her konunun sonundaki ödevleri mutlaka yapın
+4. **Notları İnceleyin:** Her klasördeki `NOTES.md` dosyalarını okuyun
+5. **Kod İnceleyin:** Örnekleri inceleyip kendiniz de yazın
+
+## 🎯 Hedefler
+
+Bu workshop sonunda:
+
+- ✅ React'in temel ve ileri seviye özelliklerini öğreneceksiniz
+- ✅ TypeScript ile tip güvenli React uygulamaları yazabileceksiniz
+- ✅ State management konusunda uzmanlaşacaksınız
+- ✅ Next.js ile modern web uygulamaları geliştirebileceksiniz
+- ✅ Rendering pattern'lerini anlayacak ve uygulayabileceksiniz
+- ✅ SCSS ile profesyonel stiller yazabileceksiniz
+
+## 📝 Notlar
+
+- Her konu için ayrı `NOTES.md` dosyası bulunmaktadır
+- Örnekler pratik odaklı ve interaktiftir
+- Ödevler konuları pekiştirmek için tasarlanmıştır
+- Mini proje tüm öğrenilen konuları birleştirir
+
+## 🤝 Katkıda Bulunma
+
+Bu eğitim materyalleri sürekli geliştirilmektedir. Önerileriniz için issue açabilirsiniz.
+
+## 📄 Lisans
+
+Bu proje eğitim amaçlıdır ve özgürce kullanılabilir.
+
+---
+
+**Happy Coding! 🚀**

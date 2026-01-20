@@ -80,14 +80,16 @@ export default function Home() {
             </div>
 
             <div className={styles.topic}>
-              <h3>Rendering Patterns</h3>
+              <h3><Link href="/day2/04-rendering">Rendering Patterns</Link></h3>
               <ul>
-                <li><Link href="/day2/rendering/ssr-demo">SSR Demo</Link></li>
-                <li><Link href="/day2/rendering/csr-demo">CSR Demo</Link></li>
-                <li><Link href="/day2/rendering/ssg-demo">SSG Demo</Link></li>
-                <li><Link href="/day2/rendering/isr-demo">ISR Demo</Link></li>
-                <li><Link href="/day2/rendering/use-client-directive">"use client" Directive</Link></li>
-                <li><Link href="/day2/rendering/nextjs-15-vs-16">Next.js 15 vs 16</Link></li>
+                <li><Link href="/day2/04-rendering/01-ssr">SSR (Server Side Rendering)</Link></li>
+                <li><Link href="/day2/04-rendering/02-csr">CSR (Client Side Rendering)</Link></li>
+                <li><Link href="/day2/04-rendering/03-ssg">SSG (Static Site Generation)</Link></li>
+                <li><Link href="/day2/04-rendering/04-isr">ISR (Incremental Static Regeneration)</Link></li>
+                {/* 
+                <li><Link href="/day2/04-rendering/05-use-client">"use client" Directive</Link></li>
+                <li><Link href="/day2/04-rendering/06-comparison">Next.js 15 vs 16</Link></li> 
+                */}
               </ul>
             </div>
 

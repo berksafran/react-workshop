@@ -46,24 +46,25 @@ export default function Home() {
         </section>
 
         <section className={styles.day}>
-          <h2>📅 Gün 2 - Routing & State Management</h2>
+          <h2><Link href="/day2">📅 Gün 2 - Routing & State Management</Link></h2>
 
           <div className={styles.topics}>
             <div className={styles.topic}>
               <h3><Link href="/day2/01-routing">React Router</Link></h3>
               <ul>
                 <li><Link href="/day2/01-routing/01-react-router-basics">Basic Routing</Link></li>
-                <li><Link href="/day2/01-routing/02-nextjs-router-basics">Nested Routes</Link></li>
-                <li><Link href="/day2/01-routing/03-nested-routes">Dynamic Routes</Link></li>
+                <li><Link href="/day2/01-routing/02-nested-routes">Nested Routes</Link></li>
+                <li><Link href="/day2/01-routing/03-dynamic-routes">Dynamic Routes</Link></li>
+                <li><Link href="/day2/01-routing/04-profile-page">Profile Page (Nested + Dynamic)</Link></li>
               </ul>
             </div>
 
             <div className={styles.topic}>
-              <h3>Next.js Router</h3>
+              <h3><Link href="/day2/02-nextjs-router">Next.js Router</Link></h3>
               <ul>
-                <li><Link href="/day2/nextjs-router/app-router-basics">App Router Basics</Link></li>
-                <li><Link href="/day2/nextjs-router/comparison">React Router vs Next.js</Link></li>
-                <li><Link href="/day2/nextjs-router/api-routes">API Routes</Link></li>
+                <li><Link href="/day2/02-nextjs-router/01-basics">Next.js Router Basics</Link></li>
+                <li><Link href="/day2/02-nextjs-router/comparison">React Router vs Next.js</Link></li>
+                <li><Link href="/day2/02-nextjs-router/api-routes">API Routes</Link></li>
               </ul>
             </div>
 

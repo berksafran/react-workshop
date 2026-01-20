@@ -12,39 +12,32 @@ export default function RoutingPage() {
         },
         {
             id: 2,
-            title: 'Next.js Router Basics',
-            description: 'App Router yapısı ve temel kullanım',
-            path: '/day2/01-routing/02-nextjs-router-basics',
-            emoji: '▲'
-        },
-        {
-            id: 3,
             title: 'Nested Routes',
             description: 'İç içe route yapıları ve Outlet kullanımı',
-            path: '/day2/01-routing/03-nested-routes',
+            path: '/day2/01-routing/02-nested-routes',
             emoji: '📁'
         },
         {
-            id: 4,
+            id: 3,
             title: 'Dynamic Routes',
-            description: 'Dinamik parametreli route\'lar',
-            path: '/day2/01-routing/04-dynamic-routes',
+            description: 'URL parametreleri ve useParams hook\'u',
+            path: '/day2/01-routing/03-dynamic-routes',
             emoji: '🔀'
         },
         {
-            id: 5,
-            title: 'Comparison',
-            description: 'React Router vs Next.js Router karşılaştırması',
-            path: '/day2/01-routing/05-comparison',
-            emoji: '⚖️'
+            id: 4,
+            title: 'Profile Page',
+            description: 'Nested + Dynamic Routes birlikte kullanımı',
+            path: '/day2/01-routing/04-profile-page',
+            emoji: '👤'
         }
     ];
 
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <h1>🛣️ Routing Fundamentals</h1>
-                <p>React Router ve Next.js Router karşılaştırmalı öğrenme</p>
+                <h1>⚛️ React Router</h1>
+                <p>Client-side routing ile Single Page Application geliştirme</p>
             </header>
 
             <div className={styles.content}>
@@ -62,10 +55,6 @@ export default function RoutingPage() {
                     </Link>
                 ))}
             </div>
-
-            <Link href="/day2" className={styles.backLink}>
-                ← Day 2 Ana Sayfa
-            </Link>
         </div>
     );
 }

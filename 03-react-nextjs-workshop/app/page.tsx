@@ -70,12 +70,12 @@ export default function Home() {
             </div>
 
             <div className={styles.topic}>
-              <h3>State Management</h3>
+              <h3><Link href="/day2/03-state-management">State Management</Link></h3>
               <ul>
-                <li><Link href="/day2/state-management/context-api">Context API</Link></li>
-                <li><Link href="/day2/state-management/context-reducer">Context + Reducer</Link></li>
-                <li><Link href="/day2/state-management/todo-app">To-Do App</Link></li>
-                <li><Link href="/day2/state-management/react-memo">React.memo</Link></li>
+                <li><Link href="/day2/03-state-management/01-context-api">Context API</Link></li>
+                <li><Link href="/day2/03-state-management/02-context-with-reducer">Context + Reducer</Link></li>
+                <li><Link href="/day2/03-state-management/03-todo-app">To-Do App (HMW)</Link></li>
+                <li><Link href="/day2/03-state-management/04-react-memo">React.memo</Link></li>
               </ul>
             </div>
 

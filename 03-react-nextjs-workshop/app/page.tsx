@@ -18,7 +18,7 @@ export default function Home() {
               <ul>
                 <li><Link href="/day1/01-typescript-react/01-simple-props">Simple Props</Link></li>
                 <li><Link href="/day1/01-typescript-react/02-props-with-children">Props with Children</Link></li>
-                <li><Link href="/day1/01-typescript-react/03-ODEV-component-types">Ödev: Component Types</Link></li>
+                <li className={styles.homework}><Link href="/day1/01-typescript-react/03-ODEV-component-types">Ödev: Component Types</Link></li>
               </ul>
             </div>
 
@@ -28,7 +28,7 @@ export default function Home() {
                 <li><Link href="/day1/02-react-core/01-declarative-vs-imperative">Declarative vs Imperative</Link></li>
                 <li><Link href="/day1/02-react-core/02-state-and-props">State & Props</Link></li>
                 <li><Link href="/day1/02-react-core/03-lifecycle">Lifecycle</Link></li>
-                <li><Link href="/day1/02-react-core/04-ODEV-counter-app">Ödev: Counter App</Link></li>
+                <li className={styles.homework}><Link href="/day1/02-react-core/04-ODEV-counter-app">Ödev: Counter App</Link></li>
               </ul>
             </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
               <ul>
                 <li><Link href="/day2/03-state-management/01-context-api">Context API</Link></li>
                 <li><Link href="/day2/03-state-management/02-context-with-reducer">Context + Reducer</Link></li>
-                <li><Link href="/day2/03-state-management/03-todo-app">Örnek: To-Do App</Link></li>
+                <li className={styles.example}><Link href="/day2/03-state-management/03-todo-app">Örnek: To-Do App</Link></li>
               </ul>
             </div>
 
@@ -85,10 +85,7 @@ export default function Home() {
                 <li><Link href="/day2/04-rendering/02-csr">CSR (Client Side Rendering)</Link></li>
                 <li><Link href="/day2/04-rendering/03-ssg">SSG (Static Site Generation)</Link></li>
                 <li><Link href="/day2/04-rendering/04-isr">ISR (Incremental Static Regeneration)</Link></li>
-                {/* 
-                <li><Link href="/day2/04-rendering/05-use-client">"use client" Directive</Link></li>
-                <li><Link href="/day2/04-rendering/06-comparison">Next.js 15 vs 16</Link></li> 
-                */}
+                <li><Link href="/day2/04-rendering/05-nextjs15-vs-16">Next.js 15 vs 16 Karşılaştırması</Link></li>
               </ul>
             </div>
 

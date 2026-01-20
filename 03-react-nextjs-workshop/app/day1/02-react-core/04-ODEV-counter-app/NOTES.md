@@ -156,30 +156,6 @@ Math.min(...history); // En düşük
 3. **Çok fazla state** → Gereksiz state oluşturma
 4. **God component** → Tek component'te her şey
 
----
-
-## Genişletme Fikirleri
-
-### Kolay
-
-- [ ] Adım sayısı ekle (1, 5, 10)
-- [ ] Maksimum/minimum limit
-- [ ] Renk değişimi (pozitif/negatif)
-
-### Orta
-
-- [ ] LocalStorage ile kaydetme
-- [ ] Undo/Redo özelliği
-- [ ] Animasyonlar
-
-### Zor
-
-- [ ] Çoklu sayaç
-- [ ] Grafik gösterimi
-- [ ] Zaman bazlı istatistikler
-
----
-
 ## Sık Sorulan Sorular
 
 1. **Soru:** Neden state parent'ta?

@@ -81,6 +81,48 @@
                     text-decoration: none;
                 }
             }
+
+            // Homework link styling - Minimalist
+            &.homework {
+                a {
+                    color: #7c3aed;
+                    font-weight: 500;
+                    border-left: 3px solid #8b5cf6;
+                    padding-left: 1rem;
+                    background-color: #faf5ff;
+
+                    &::before {
+                        content: '📝 ';
+                        margin-right: 0.5rem;
+                    }
+
+                    &:hover {
+                        background-color: #f3e8ff;
+                        border-left-color: #6d28d9;
+                    }
+                }
+            }
+
+            // Example link styling - Minimalist
+            &.example {
+                a {
+                    color: #059669;
+                    font-weight: 500;
+                    border-left: 3px solid #10b981;
+                    padding-left: 1rem;
+                    background-color: #f0fdf4;
+
+                    &::before {
+                        content: '💡 ';
+                        margin-right: 0.5rem;
+                    }
+
+                    &:hover {
+                        background-color: #dcfce7;
+                        border-left-color: #047857;
+                    }
+                }
+            }
         }
     }
 }

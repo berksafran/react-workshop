@@ -23,6 +23,13 @@ export default function NextjsRouterPage() {
             description: 'Next.js API Routes kullanımı',
             path: '/day2/02-nextjs-router/03-api-routes',
             emoji: '🔌'
+        },
+        {
+            id: 4,
+            title: 'Middleware',
+            description: 'Next.js 16 Middleware (Proxy)',
+            path: '/day2/02-nextjs-router/04-middleware',
+            emoji: '⚙️'
         }
     ];
 

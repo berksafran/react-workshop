@@ -26,11 +26,11 @@ export default function StateManagementPage() {
         },
         {
             id: 4,
-            title: 'React.memo & Performance',
-            description: 'Render optimizasyonu ve performans',
-            path: '/day2/03-state-management/04-react-memo',
-            emoji: '⚡'
-        }
+            title: 'Redux vs Context API',
+            description: 'Hangisini ne zaman kullanmalıyız?',
+            path: '/day2/03-state-management/04-redux-vs-context',
+            emoji: '⚖️'
+        },
     ];
 
     return (

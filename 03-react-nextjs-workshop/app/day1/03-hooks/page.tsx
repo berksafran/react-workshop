@@ -26,7 +26,7 @@ export default function Day1HooksPage() {
         },
         {
             id: 4,
-            title: 'Memoization (useCallback, useMemo, React.memo)',
+            title: 'Memoization',
             description: 'Performans optimizasyonu ve memoization teknikleri',
             path: '/day1/03-hooks/04-memoization',
             emoji: '⚡'
@@ -60,10 +60,6 @@ export default function Day1HooksPage() {
                     </Link>
                 ))}
             </div>
-
-            <Link href="/" className={styles.backLink}>
-                ← Ana Sayfaya Dön
-            </Link>
         </div>
     );
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import styles from "./auth-demo.module.scss";
 
-export default function AuthDemoPage() {
+function AuthContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -173,5 +173,13 @@ export const config = {
                 <Link href="/day2/02-nextjs-router/04-middleware">← Proxy Examples</Link>
             </div>
         </div>
+    );
+}
+
+export default function AuthDemoPage() {
+    return (
+        <Suspense fallback={<div style={{ padding: "2rem", textAlign: "center" }}>Loading auth demo...</div>}>
+            <AuthContent />
+        </Suspense>
     );
 }

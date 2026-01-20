@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import styles from "./protected.module.scss";
 
-export default function ProtectedPage() {
+function ProtectedContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [loading, setLoading] = useState(true);
@@ -168,5 +168,13 @@ export function middleware(request: NextRequest) {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function ProtectedPage() {
+    return (
+        <Suspense fallback={<div className={styles.loading}>Loading protected content...</div>}>
+            <ProtectedContent />
+        </Suspense>
     );
 }

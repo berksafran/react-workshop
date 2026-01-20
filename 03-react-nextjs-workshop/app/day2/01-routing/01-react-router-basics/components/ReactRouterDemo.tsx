@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import styles from './ReactRouterDemo.module.scss';
 
@@ -63,6 +64,16 @@ function NotFoundPage() {
 
 // Main Router Component
 export function ReactRouterDemo() {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) {
+        return <div style={{ padding: '2rem', textAlign: 'center' }}>Loading React Router Demo...</div>;
+    }
+
     return (
         <BrowserRouter>
             <div className={styles.demo}>

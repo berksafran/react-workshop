@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ========================================
+   ANIMATED BACKGROUND
+   ======================================== */
+
+.backgroundAnimation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+
+    &:nth-child(1) {
+        width: 3px;
+        height: 3px;
+        top: 20%;
+        left: 20%;
+        animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+        width: 2px;
+        height: 2px;
+        top: 40%;
+        left: 80%;
+        animation-delay: 0.5s;
+    }
+
+    &:nth-child(3) {
+        width: 4px;
+        height: 4px;
+        top: 60%;
+        left: 30%;
+        animation-delay: 1s;
+    }
+
+    &:nth-child(4) {
+        width: 2px;
+        height: 2px;
+        top: 80%;
+        left: 70%;
+        animation-delay: 1.5s;
+    }
+
+    &:nth-child(5) {
+        width: 3px;
+        height: 3px;
+        top: 30%;
+        left: 50%;
+        animation-delay: 2s;
+    }
+
+    &:nth-child(6) {
+        width: 2px;
+        height: 2px;
+        top: 70%;
+        left: 90%;
+        animation-delay: 2.5s;
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 4rem;
+    }
+}
+
+/* ========================================
+   ASTRONAUT ILLUSTRATION
+   ======================================== */
+
+.illustration {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.astronaut {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.helmet {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
+    border-radius: 50%;
+    border: 4px solid #b0b0b0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.visor {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 56px;
+    height: 40px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 50% 50% 40% 40%;
+    box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.reflection {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 20px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.body {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 90px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-radius: 15px;
+    border: 3px solid #b0b0b0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        border: 2px solid #b0b0b0;
+    }
+}
+
+.armLeft,
+.armRight {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-radius: 10px;
+    border: 2px solid #b0b0b0;
+    top: 85px;
+}
+
+.armLeft {
+    left: 20px;
+    transform: rotate(-20deg);
+    animation: waveLeft 2s ease-in-out infinite;
+}
+
+.armRight {
+    right: 20px;
+    transform: rotate(20deg);
+    animation: waveRight 2s ease-in-out infinite;
+}
+
+@keyframes waveLeft {
+
+    0%,
+    100% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes waveRight {
+
+    0%,
+    100% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(40deg);
+    }
+}
+
+.legLeft,
+.legRight {
+    position: absolute;
+    width: 18px;
+    height: 50px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-radius: 10px;
+    border: 2px solid #b0b0b0;
+    top: 160px;
+}
+
+.legLeft {
+    left: 35px;
+}
+
+.legRight {
+    right: 35px;
+}
+
+/* Floating Elements */
+
+.planet {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
+    animation: orbit 10s linear infinite;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 15px;
+        height: 15px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+    }
+}
+
+.moon {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: orbit 8s linear infinite reverse;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        width: 10px;
+        height: 10px;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+    }
+}
+
+.satellite {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 30px;
+    height: 20px;
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    border-radius: 5px;
+    animation: orbit 12s linear infinite;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background: #4ecdc4;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        left: -28px;
+    }
+
+    &::after {
+        right: -28px;
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(50px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(50px) rotate(-360deg);
+    }
+}
+
+/* ========================================
+   ERROR CONTENT
+   ======================================== */
+
+.errorContent {
+    flex: 1;
+    text-align: center;
+    color: white;
+
+    @media (min-width: 768px) {
+        text-align: left;
+    }
+}
+
+.errorCode {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+
+    @media (min-width: 768px) {
+        justify-content: flex-start;
+        font-size: 8rem;
+    }
+}
+
+.digit {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: bounce 1s ease-in-out infinite;
+
+    &:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.errorTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (min-width: 768px) {
+        font-size: 3rem;
+    }
+}
+
+.errorMessage {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 768px) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* ========================================
+   ACTION BUTTONS
+   ======================================== */
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+        justify-content: flex-start;
+    }
+}
+
+.primaryButton,
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: inherit;
+
+    .icon {
+        font-size: 1.25rem;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover .icon {
+        transform: scale(1.2);
+    }
+}
+
+.primaryButton {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    color: #667eea;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.secondaryButton {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   HELPFUL LINKS
+   ======================================== */
+
+.helpfulLinks {
+    margin-top: 2rem;
+}
+
+.helpText {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.linkGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.helpLink {
+    display: block;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateX(5px);
+    }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    z-index: 1;
+
+    code {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        color: white;
+        font-family: 'Courier New', monospace;
+    }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 767px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .illustration {
+        width: 200px;
+        height: 200px;
+    }
+
+    .astronaut {
+        width: 100px;
+        height: 140px;
+    }
+
+    .helmet {
+        width: 60px;
+        height: 60px;
+    }
+
+    .visor {
+        width: 42px;
+        height: 30px;
+        top: 15px;
+        left: 7px;
+    }
+
+    .body {
+        width: 50px;
+        height: 70px;
+        top: 55px;
+    }
+
+    .armLeft,
+    .armRight {
+        width: 15px;
+        height: 45px;
+        top: 65px;
+    }
+
+    .legLeft,
+    .legRight {
+        width: 14px;
+        height: 40px;
+        top: 115px;
+    }
+
+    .planet {
+        width: 40px;
+        height: 40px;
+    }
+
+    .moon {
+        width: 30px;
+        height: 30px;
+    }
+}

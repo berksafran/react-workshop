@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import styles from '../../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
+import refStyles from './RefDemo.module.scss';
 
 export function RefDomDemo() {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -38,18 +39,13 @@ export function RefDomDemo() {
             <h3>DOM Referansları</h3>
 
             {/* Input Focus Example */}
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>1. Input Focus</h4>
                 <input
                     ref={inputRef}
                     type="text"
                     placeholder="Bu input'a focus yapılacak"
-                    style={{
-                        padding: '0.5rem',
-                        marginRight: '0.5rem',
-                        borderRadius: '4px',
-                        border: '1px solid #ccc'
-                    }}
+                    className={refStyles.inputField}
                 />
                 <button onClick={handleFocus} className={styles.button}>
                     Focus Input
@@ -57,18 +53,11 @@ export function RefDomDemo() {
             </div>
 
             {/* Scroll Example */}
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>2. Scroll Kontrolü</h4>
                 <div
                     ref={scrollRef}
-                    style={{
-                        height: '100px',
-                        overflow: 'auto',
-                        border: '1px solid #ccc',
-                        padding: '1rem',
-                        marginBottom: '0.5rem',
-                        borderRadius: '4px'
-                    }}
+                    className={refStyles.scrollContainer}
                 >
                     <p>Scroll edilebilir içerik...</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -85,12 +74,12 @@ export function RefDomDemo() {
             </div>
 
             {/* Video Control Example */}
-            <div style={{ marginBottom: '1rem' }}>
+            <div className={refStyles.sectionSmall}>
                 <h4>3. Video Kontrolü</h4>
                 <video
                     ref={videoRef}
                     width="300"
-                    style={{ display: 'block', marginBottom: '0.5rem', borderRadius: '4px' }}
+                    className={refStyles.videoPlayer}
                 >
                     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
                 </video>
@@ -99,7 +88,7 @@ export function RefDomDemo() {
                 </button>
             </div>
 
-            <div className={styles.code} style={{ marginTop: '1rem' }}>
+            <div className={`${styles.code} ${refStyles.codeBlock}`}>
                 <pre>{`const inputRef = useRef<HTMLInputElement>(null);
 
 // DOM elementine erişim

@@ -1,0 +1,59 @@
+// RefDemo specific styles
+.inputField {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.scrollContainer {
+    height: 100px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.videoPlayer {
+    display: block;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.section {
+    margin-bottom: 1.5rem;
+}
+
+.sectionSmall {
+    margin-bottom: 1rem;
+}
+
+.infoText {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.smallText {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.codeBlock {
+    margin-top: 1rem;
+}
+
+.highlightsBlock {
+    margin-top: 1rem;
+}
+
+.flexContainer {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.buttonSpaced {
+    margin-top: 0.5rem;
+}

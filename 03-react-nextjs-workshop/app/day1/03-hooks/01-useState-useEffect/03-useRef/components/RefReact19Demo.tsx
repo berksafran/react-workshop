@@ -2,6 +2,7 @@
 
 import { useRef, forwardRef, useImperativeHandle } from 'react';
 import styles from '../../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
+import refStyles from './RefDemo.module.scss';
 
 // ❌ ESKİ YÖNTEM (React 18 ve öncesi): forwardRef gerekli
 const OldInputComponent = forwardRef<HTMLInputElement>((props, ref) => {
@@ -10,12 +11,7 @@ const OldInputComponent = forwardRef<HTMLInputElement>((props, ref) => {
             ref={ref}
             type="text"
             placeholder="Eski yöntem (forwardRef)"
-            style={{
-                padding: '0.5rem',
-                borderRadius: '4px',
-                border: '1px solid #ccc',
-                width: '100%'
-            }}
+            className={refStyles.inputField}
         />
     );
 });
@@ -28,12 +24,7 @@ function NewInputComponent({ ref }: { ref: React.Ref<HTMLInputElement> }) {
             ref={ref}
             type="text"
             placeholder="Yeni yöntem (ref as prop)"
-            style={{
-                padding: '0.5rem',
-                borderRadius: '4px',
-                border: '1px solid #ccc',
-                width: '100%'
-            }}
+            className={refStyles.inputField}
         />
     );
 }
@@ -53,12 +44,7 @@ function InputWithCleanup({ ref }: { ref: React.Ref<HTMLInputElement> }) {
             ref={internalRef}
             type="text"
             placeholder="Cleanup destekli ref"
-            style={{
-                padding: '0.5rem',
-                borderRadius: '4px',
-                border: '1px solid #ccc',
-                width: '100%'
-            }}
+            className={refStyles.inputField}
         />
     );
 }
@@ -84,17 +70,17 @@ export function RefReact19Demo() {
         <div className={styles.demo}>
             <h3>React 19 Değişiklikleri</h3>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>❌ Eski Yöntem (React 18)</h4>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>
+                <p className={refStyles.infoText}>
                     forwardRef kullanılması gerekiyordu
                 </p>
                 <OldInputComponent ref={oldInputRef} />
-                <button onClick={focusOldInput} className={styles.button} style={{ marginTop: '0.5rem' }}>
+                <button onClick={focusOldInput} className={`${styles.button} ${refStyles.buttonSpaced}`}>
                     Focus (Eski Yöntem)
                 </button>
 
-                <div className={styles.code} style={{ marginTop: '0.5rem' }}>
+                <div className={`${styles.code} ${refStyles.buttonSpaced}`}>
                     <pre>{`// ❌ React 18 ve öncesi
 const MyInput = forwardRef<HTMLInputElement>(
   (props, ref) => {
@@ -104,17 +90,17 @@ const MyInput = forwardRef<HTMLInputElement>(
                 </div>
             </div>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>✅ Yeni Yöntem (React 19)</h4>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>
+                <p className={refStyles.infoText}>
                     ref direkt prop olarak geçilebilir, forwardRef gerekmez
                 </p>
                 <NewInputComponent ref={newInputRef} />
-                <button onClick={focusNewInput} className={styles.button} style={{ marginTop: '0.5rem' }}>
+                <button onClick={focusNewInput} className={`${styles.button} ${refStyles.buttonSpaced}`}>
                     Focus (Yeni Yöntem)
                 </button>
 
-                <div className={styles.code} style={{ marginTop: '0.5rem' }}>
+                <div className={`${styles.code} ${refStyles.buttonSpaced}`}>
                     <pre>{`// ✅ React 19
 function MyInput({ ref }: { 
   ref: React.RefObject<HTMLInputElement> 
@@ -127,17 +113,17 @@ function MyInput({ ref }: {
                 </div>
             </div>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>✅ Ref Cleanup Function (React 19)</h4>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>
+                <p className={refStyles.infoText}>
                     Ref artık cleanup fonksiyonu döndürebilir
                 </p>
                 <InputWithCleanup ref={cleanupInputRef} />
-                <button onClick={focusCleanupInput} className={styles.button} style={{ marginTop: '0.5rem' }}>
+                <button onClick={focusCleanupInput} className={`${styles.button} ${refStyles.buttonSpaced}`}>
                     Focus (Cleanup)
                 </button>
 
-                <div className={styles.code} style={{ marginTop: '0.5rem' }}>
+                <div className={`${styles.code} ${refStyles.buttonSpaced}`}>
                     <pre>{`// ✅ React 19: Ref cleanup
 useEffect(() => {
   const element = ref.current;

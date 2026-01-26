@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import styles from '../../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
+import refStyles from './RefDemo.module.scss';
 
 export function RefValueDemo() {
     const [count, setCount] = useState(0);
@@ -49,7 +50,7 @@ export function RefValueDemo() {
         <div className={styles.demo}>
             <h3>Değer Saklama (Re-render Tetiklemeden)</h3>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>1. Önceki Değeri Saklama</h4>
                 <p><strong>Mevcut Count:</strong> {count}</p>
                 <p><strong>Önceki Count:</strong> {prevCountRef.current ?? 'Henüz yok'}</p>
@@ -61,15 +62,15 @@ export function RefValueDemo() {
                 </button>
             </div>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>2. Render Sayısını Takip Etme</h4>
                 <p><strong>Render Sayısı:</strong> {renderCount.current}</p>
-                <p style={{ fontSize: '0.9rem', color: '#666' }}>
+                <p className={refStyles.infoText}>
                     ℹ️ renderCount bir ref olduğu için değiştiğinde re-render tetiklenmez
                 </p>
             </div>
 
-            <div style={{ marginBottom: '1rem' }}>
+            <div className={refStyles.sectionSmall}>
                 <h4>3. Timer ID Saklama</h4>
                 <p><strong>Timer Durumu:</strong> {isRunning ? '🟢 Çalışıyor' : '🔴 Durdu'}</p>
                 <p><strong>Count:</strong> {count}</p>
@@ -84,7 +85,7 @@ export function RefValueDemo() {
                 </button>
             </div>
 
-            <div className={styles.code} style={{ marginTop: '1rem' }}>
+            <div className={`${styles.code} ${refStyles.codeBlock}`}>
                 <pre>{`// Önceki değeri sakla
 const prevCountRef = useRef<number>();
 useEffect(() => {
@@ -101,7 +102,7 @@ timerRef.current = setInterval(() => {...}, 1000);
 clearInterval(timerRef.current);`}</pre>
             </div>
 
-            <div className={styles.highlights} style={{ marginTop: '1rem' }}>
+            <div className={`${styles.highlights} ${refStyles.highlightsBlock}`}>
                 <h4>🎯 useRef vs useState</h4>
                 <ul>
                     <li><strong>useState:</strong> Değer değişince re-render tetiklenir</li>

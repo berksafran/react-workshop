@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import styles from '../../../../02-react-core/01-declarative-vs-imperative/page.module.scss';
+import refStyles from './RefDemo.module.scss';
 
 export function RefCommonMistakes() {
     const [count, setCount] = useState(0);
@@ -30,7 +31,7 @@ export function RefCommonMistakes() {
         <div className={styles.demo}>
             <h3>Yaygın Hatalar ve Doğru Kullanım</h3>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>❌ Hata 1: Render Sırasında ref.current Değiştirme</h4>
                 <div className={styles.code}>
                     <pre>{`// ❌ YANLIŞ
@@ -51,12 +52,12 @@ function Component() {
                 </div>
             </div>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>❌ Hata 2: UI için useRef Kullanma</h4>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>
+                <p className={refStyles.infoText}>
                     UI'da gösterilecek değerler için useState kullan
                 </p>
-                <div style={{ display: 'flex', gap: '2rem', marginBottom: '1rem' }}>
+                <div className={refStyles.flexContainer}>
                     <div>
                         <p><strong>useState (✅ Doğru):</strong></p>
                         <p>Count: {count}</p>
@@ -70,7 +71,7 @@ function Component() {
                         <button onClick={incrementRef} className={styles.button}>
                             Artır (useRef)
                         </button>
-                        <p style={{ fontSize: '0.8rem', color: '#666' }}>
+                        <p className={refStyles.smallText}>
                             (Manuel re-render gerekti)
                         </p>
                     </div>
@@ -87,7 +88,7 @@ setCount(c => c + 1); // UI güncelleniyor!`}</pre>
                 </div>
             </div>
 
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div className={refStyles.section}>
                 <h4>❌ Hata 3: Callback Ref vs useRef Karışıklığı</h4>
                 <div className={styles.code}>
                     <pre>{`// useRef: Basit DOM referansı
@@ -127,7 +128,7 @@ const [element, setElement] = useState<HTMLElement | null>(null);
                 </ul>
             </div>
 
-            <div className={styles.highlights} style={{ marginTop: '1rem' }}>
+            <div className={`${styles.highlights} ${refStyles.highlightsBlock}`}>
                 <h4>⚠️ Önemli Kurallar</h4>
                 <ul>
                     <li>Render sırasında ref.current'i değiştirme</li>

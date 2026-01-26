@@ -35,7 +35,7 @@ export default function Home() {
             <div className={styles.topic}>
               <h3><Link href="/day1/03-hooks">Hooks Deep Dive</Link></h3>
               <ul>
-                <li><Link href="/day1/03-hooks/01-useState-useEffect">useState & useEffect</Link></li>
+                <li><Link href="/day1/03-hooks/01-useState-useEffect">useState, useEffect & useRef</Link></li>
                 <li><Link href="/day1/03-hooks/02-useReducer">useReducer</Link></li>
                 <li><Link href="/day1/03-hooks/03-custom-hooks">Custom Hooks</Link></li>
                 <li><Link href="/day1/03-hooks/04-memoization">Memoization</Link></li>

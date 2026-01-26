@@ -16,13 +16,20 @@ export default function UseStateUseEffectIndexPage() {
             description: 'Side effects - API calls, subscriptions, cleanup',
             path: '/day1/03-hooks/01-useState-useEffect/02-useEffect',
             emoji: '⚡'
+        },
+        {
+            id: 3,
+            title: 'useRef',
+            description: 'DOM referansları ve değer saklama - React 19 değişiklikleri',
+            path: '/day1/03-hooks/01-useState-useEffect/03-useRef',
+            emoji: '🎯'
         }
     ];
 
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <h1>useState & useEffect</h1>
+                <h1>useState, useEffect & useRef</h1>
                 <p>React'in en temel hooks'ları</p>
             </header>
 

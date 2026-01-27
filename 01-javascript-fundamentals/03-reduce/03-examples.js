@@ -1,9 +1,9 @@
 /**
- * REDUCE - REACT ÖRNEĞİ
+ * REDUCE Örnekleri
  * Detaylı notlar: ../NOTES.md
  */
 
-console.log("=== REDUCE - REACT ÖRNEĞİ ===\n");
+console.log("=== REDUCE Örnekleri ===\n");
 
 // Sepet toplamı
 console.log("1. Sepet Toplamı:");

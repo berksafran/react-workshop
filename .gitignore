@@ -1,12 +1,7 @@
-# Solution files
-**/solution.js
-**/solution.jsx
-**/solution.ts
-**/solution.tsx
-
 # Solution directories
-/03-react-nextjs-workshop/app/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/components/
-/03-react-nextjs-workshop/app/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/hooks/
-/03-react-nextjs-workshop/app/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/solution/
-/03-react-nextjs-workshop/app/day2/05-mini-project/solution
-/solutions
+/03-react-nextjs-workshop/app/day2/05-mini-project/solution/components
+/03-react-nextjs-workshop/app/day2/05-mini-project/solution/contexts
+/03-react-nextjs-workshop/app/day2/05-mini-project/solution/types
+/03-react-nextjs-workshop/app/day2/05-mini-project/solution/users
+/03-react-nextjs-workshop/app/day2/05-mini-project/solution/layout.tsx
+/03-react-nextjs-workshop/app/day2/05-mini-project/solution/page.tsx

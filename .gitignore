@@ -5,7 +5,6 @@
 **/solution.tsx
 
 # Solution directories
-/03-react-nextjs-workshop/app/day1/02-react-core/04-ODEV-counter-app/components/
 /03-react-nextjs-workshop/app/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/components/
 /03-react-nextjs-workshop/app/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/hooks/
 /03-react-nextjs-workshop/app/day1/03-hooks/03-custom-hooks/ODEV-custom-hooks/solution/

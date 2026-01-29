@@ -27,6 +27,7 @@ solution/
 │   ├── UserPosts.module.scss
 │   ├── FavoriteButton.tsx  # Favori ekleme/çıkarma butonu
 │   ├── FavoriteButton.module.scss
+│   ├── UsersClient.tsx     # Kullanıcı listesi UI (Client Component)
 │   ├── Loading.tsx         # Yükleniyor bileşeni
 │   └── Loading.module.scss
 ├── contexts/               # Global state yönetimi
@@ -34,7 +35,7 @@ solution/
 ├── types/                  # TypeScript tip tanımlamaları
 │   └── user.ts            # User, Address, Company, Post, Album tipleri
 ├── users/                  # Kullanıcı sayfaları
-│   ├── page.tsx           # Kullanıcı listesi (SSR)
+│   ├── page.tsx           # Kullanıcı listesi (SSR - Server Component)
 │   ├── page.module.scss
 │   └── [id]/              # Dinamik route
 │       ├── page.tsx       # Kullanıcı detayı (CSR)
@@ -48,12 +49,14 @@ solution/
 
 ### 1. Server Side Rendering (SSR)
 
-**Dosya:** `users/page.tsx`
+**Dosyalar:** `users/page.tsx` (Server Component) + `users/UsersClient.tsx` (Client Component)
 
-- Kullanıcı listesi her istekte sunucuda çekilir
+- Kullanıcı listesi her istekte sunucuda çekilir (SSR)
 - `fetch` ile `cache: 'no-store'` kullanılarak SSR zorlanır
 - Veriler HTML olarak tarayıcıya gelir
 - Terminal konsolunda "🚀 Fetching users on SERVER..." mesajını görebilirsiniz
+- **Hybrid Yaklaşım:** Server Component veriyi çeker, Client Component filtreleme ve favori yönetimini yapar
+- Bu yaklaşım hem SEO avantajı hem de client-side interaktivite sağlar
 
 ### 2. Client Side Rendering (CSR)
 

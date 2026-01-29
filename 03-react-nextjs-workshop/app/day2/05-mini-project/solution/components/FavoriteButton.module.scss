@@ -1,0 +1,35 @@
+.favoriteButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e5e7eb;
+    background: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #4b5563;
+
+    &:hover {
+        border-color: #ef4444;
+        background: #fef2f2;
+        color: #ef4444;
+    }
+
+    &.active {
+        border-color: #ef4444;
+        background: #ef4444;
+        color: white;
+
+        &:hover {
+            background: #dc2626;
+            border-color: #dc2626;
+        }
+    }
+}
+
+.icon {
+    font-size: 1.25rem;
+}

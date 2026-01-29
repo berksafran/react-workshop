@@ -24,12 +24,13 @@ export default async function CounterAppHomeworkPage() {
                 </p>
 
                 <div className={styles.imageContainer}>
-                    <Image
+                    {/* <Image
                         src={CounterAppImage}
                         alt="Counter App Example"
                         className={styles.image}
                         priority
-                    />
+                    /> */}
+                    <CounterApp />
                 </div>
 
                 <div className={styles.highlights}>
